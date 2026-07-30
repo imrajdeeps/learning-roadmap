@@ -1,0 +1,4 @@
+# Generated exports — the dc-runtime regex-slices the template out of the raw
+# file text and compiles it, custom tags (<sc-if>, <sc-for>) included.
+# Reformatting them risks changing what gets compiled. Do not format.
+prototype/

@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="./support.js"></script>
+</head>
+
+<body>
+  <a href="../index.html" style="position:fixed;top:12px;left:12px;z-index:2147483647;
+   font:600 12px/1 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+   color:#fff;background:rgba(20,20,24,.72);backdrop-filter:blur(8px);
+   -webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);
+   border-radius:999px;padding:8px 13px;text-decoration:none">&larr; Roadmaps</a>
+  <x-dc>
+    <helmet>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="_ds/modernist-7faae1d2-fe4c-4035-939c-8ea49e590927/styles.css">
+      <script src="_ds/modernist-7faae1d2-fe4c-4035-939c-8ea49e590927/_ds_bundle.js"></script>
+      <style>
+        body {
+          -webkit-font-smoothing: antialiased;
+        }
+
+        .gs-scroll::-webkit-scrollbar {
+          width: 8px;
+          height: 8px;
+        }
+
+        .gs-scroll::-webkit-scrollbar-thumb {
+          background: #bab6b6;
+        }
+
+        .gs-chip {
+          cursor: pointer;
+          font-family: var(--font-heading);
+          font-weight: 800;
+          font-size: 11px;
+          letter-spacing: .06em;
+          text-transform: uppercase;
+          padding: 6px 10px;
+          border: 1px solid var(--color-divider);
+          background: transparent;
+          color: var(--color-text);
+        }
+
+        .gs-chip:hover {
+          background: color-mix(in srgb, var(--color-text) 8%, transparent);
+        }
+
+        .gs-chip[data-on="1"] {
+          background: var(--color-accent);
+          border-color: var(--color-accent);
+          color: #f3f2f2;
+        }
+
+        .gs-row {
+          cursor: pointer;
+        }
+
+        .gs-tile {
+          background: var(--color-neutral-300);
+          display: grid;
+          place-items: center;
+          font-family: var(--font-heading);
+          font-weight: 800;
+          color: #7d7979;
+          font-size: 11px;
+          letter-spacing: .12em;
+        }
+
+        @keyframes gspulse {
+
+          0%,
+          100% {
+            opacity: 1
+          }
+
+          50% {
+            opacity: .25
+          }
+        }
+
+        .gs-live {
+          animation: gspulse 1.6s ease-in-out infinite;
+        }
+      </style>
+    </helmet>
+
+    <div
+      style="min-height: 100vh; display: flex; flex-direction: column; background: #f3f2f2; color: #201e1d; font-family: 'Archivo', system-ui, sans-serif;">
+
+      <div
+        style="display: flex; align-items: baseline; gap: 20px; padding: 14px 20px; border-bottom: 2px solid rgba(32,30,29,.4); flex-wrap: wrap;">
+        <div
+          style="font-family: 'Archivo'; font-weight: 800; font-size: 19px; letter-spacing: -.02em; margin-right: 8px;">
+          GLOW<span style="color: #ec3013;">SERVE</span></div>
+        <div style="font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979;">At-home beauty
+          &amp; wellness · prototype v1</div>
+        <div style="margin-left: auto; display: flex; gap: 6px;">
+          <button class="gs-chip" data-on="{{ isCustomer }}" onClick="{{ goCustomer }}">Customer</button>
+          <button class="gs-chip" data-on="{{ isPro }}" onClick="{{ goPro }}">Professional</button>
+          <button class="gs-chip" data-on="{{ isAdmin }}" onClick="{{ goAdmin }}">Admin &amp; Ops</button>
+        </div>
+      </div>
+
+      <div
+        style="display: flex; align-items: center; gap: 6px; padding: 10px 20px; border-bottom: 1px solid rgba(32,30,29,.4); overflow-x: auto; flex-wrap: wrap;">
+        <sc-for list="{{ screenTabs }}" as="t" hint-placeholder-count="9">
+          <button class="gs-chip" data-on="{{ t.on }}" onClick="{{ t.go }}">{{ t.label }}</button>
+        </sc-for>
+      </div>
+
+      <div class="gs-scroll"
+        style="flex: 1; overflow: auto; padding: 28px 20px 60px; display: flex; justify-content: center;">
+
+        <sc-if value="{{ mobile }}" hint-placeholder-val="{{ true }}">
+          <div
+            style="width: 390px; flex: none; border: 2px solid #201e1d; background: #f3f2f2; height: 812px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 12px 32px rgba(45,43,43,.22);">
+            <div
+              style="display: flex; align-items: center; justify-content: space-between; padding: 8px 16px 6px; font-size: 11px; font-weight: 800; letter-spacing: .04em;">
+              <span>9:41</span>
+              <span style="color: #7d7979;">{{ frameLabel }}</span>
+              <span style="display: flex; gap: 4px; align-items: center;"><span
+                  style="width: 18px; height: 9px; border: 1.5px solid #201e1d; display: inline-block;"></span></span>
+            </div>
+
+            <div class="gs-scroll" style="flex: 1; overflow-y: auto; position: relative;">
+
+              <!-- ══ CUSTOMER · HOME ══ -->
+              <sc-if value="{{ scHome }}" hint-placeholder-val="{{ true }}">
+                <div>
+                  <div style="padding: 12px 16px 14px; border-bottom: 2px solid rgba(32,30,29,.4);">
+                    <div style="font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #7d7979;">
+                      Serving</div>
+                    <div style="display: flex; align-items: center; gap: 8px; margin-top: 2px;">
+                      <div style="font-family: 'Archivo'; font-weight: 800; font-size: 17px;">Sector 54, Gurugram</div>
+                      <span style="color: #ec3013; font-size: 12px; font-weight: 800;">CHANGE</span>
+                    </div>
+                    <div
+                      style="margin-top: 12px; display: flex; border: 1px solid rgba(32,30,29,.4); background: #eae9e9;">
+                      <div style="padding: 9px 12px; font-size: 13px; color: #7d7979; flex: 1;">Search facial, massage,
+                        waxing…</div>
+                      <div
+                        style="width: 40px; display: grid; place-items: center; background: #ec3013; color: #f3f2f2; font-weight: 800; font-size: 13px;">
+                        →</div>
+                    </div>
+                  </div>
+
+                  <div style="padding: 20px 16px 0;">
+                    <h2 style="font-size: 30px; line-height: 1.05; margin: 0 0 8px; letter-spacing: -.02em;">Salon-grade
+                      care.<br>At your address.</h2>
+                    <p style="font-size: 13px; color: #605d5d; margin: 0 0 4px; max-width: 300px; text-wrap: pretty;">
+                      Verified professionals, sealed single-use kits, OTP-verified start and finish. Slots from 8 AM to
+                      9 PM.</p>
+                    <div
+                      style="display: flex; gap: 18px; margin: 16px 0 4px; padding: 12px 0; border-top: 2px solid rgba(32,30,29,.4); border-bottom: 2px solid rgba(32,30,29,.4);">
+                      <div>
+                        <div style="font-family: 'Archivo'; font-weight: 800; font-size: 20px;">4.83</div>
+                        <div style="font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979;">
+                          Avg rating</div>
+                      </div>
+                      <div>
+                        <div style="font-family: 'Archivo'; font-weight: 800; font-size: 20px;">2,140</div>
+                        <div style="font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979;">
+                          Pros in NCR</div>
+                      </div>
+                      <div>
+                        <div style="font-family: 'Archivo'; font-weight: 800; font-size: 20px;">62 min</div>
+                        <div style="font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979;">
+                          Median arrival</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="padding: 18px 16px 0;">
+                    <div
+                      style="font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979; margin-bottom: 10px;">
+                      Categories</div>
+                    <div
+                      style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: rgba(32,30,29,.4); border: 1px solid rgba(32,30,29,.4);">
+                      <sc-for list="{{ categories }}" as="c" hint-placeholder-count="6">
+                        <button onClick="{{ goCategory }}"
+                          style="background: #f3f2f2; border: 0; text-align: left; padding: 14px 12px; cursor: pointer; font-family: 'Archivo';">
+                          <div class="gs-tile" style="height: 54px; margin-bottom: 10px;">{{ c.code }}</div>
+                          <div style="font-weight: 800; font-size: 14px; line-height: 1.15;">{{ c.name }}</div>
+                          <div style="font-size: 11px; color: #7d7979; margin-top: 3px;">{{ c.meta }}</div>
+                        </button>
+                      </sc-for>
+                    </div>
+                  </div>
+
+                  <div style="padding: 22px 16px 0;">
+                    <div
+                      style="font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979; margin-bottom: 10px;">
+                      Offers</div>
+                    <div style="border: 2px solid #ec3013; padding: 14px;">
+                      <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                        <div style="font-family: 'Archivo'; font-weight: 800; font-size: 22px; color: #ec3013;">GLOW20
+                        </div>
+                        <div style="font-size: 11px; color: #7d7979;">Ends 4 Aug</div>
+                      </div>
+                      <div style="font-size: 13px; margin-top: 4px;">20% off your first spa booking, up to ₹400. Min
+                        order ₹999.</div>
+                    </div>
+                    <div
+                      style="border: 1px solid rgba(32,30,29,.4); padding: 14px; margin-top: 2px; background: #eae9e9;">
+                      <div style="font-family: 'Archivo'; font-weight: 800; font-size: 15px;">GlowServe Plus — ₹499 /
+                        year</div>
+                      <div style="font-size: 12px; color: #605d5d; margin-top: 3px;">10% off every booking, zero
+                        platform fee, priority slots. You save ₹2,180 at your current pace.</div>
+                    </div>
+                  </div>
+
+                  <div style="padding: 22px 16px 0;">
+                    <div
+                      style="font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979; margin-bottom: 10px;">
+                      How it works</div>
+                    <sc-for list="{{ howSteps }}" as="s" hint-placeholder-count="4">
+                      <div style="display: flex; gap: 12px; padding: 10px 0; border-top: 1px solid rgba(32,30,29,.25);">
+                        <div
+                          style="font-family: 'Archivo'; font-weight: 800; font-size: 12px; color: #ec3013; width: 22px; flex: none;">
+                          {{ s.n }}</div>
+                        <div>
+                          <div style="font-weight: 800; font-size: 14px;">{{ s.t }}</div>
+                          <div style="font-size: 12px; color: #605d5d;">{{ s.d }}</div>
+                        </div>
+                      </div>
+                    </sc-for>
+                  </div>
+
+                  <div style="padding: 22px 16px 24px;">
+                    <div
+                      style="font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979; margin-bottom: 10px;">
+                      Available in</div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                      <sc-for list="{{ cities }}" as="c" hint-placeholder-count="7">
+                        <span class="tag tag-neutral" style="border: 1px solid rgba(32,30,29,.25);">{{ c }}</span>
+                      </sc-for>
+                    </div>
+                  </div>
+                </div>
+              </sc-if>
+
+              <!-- ══ CUSTOMER · CATEGORY LISTING ══ -->
+              <sc-if value="{{ scCategory }}">
+                <div>
+                  <div
+                    style="padding: 12px 16px; border-bottom: 2px solid rgba(32,30,29,.4); display: flex; align-items: center; gap: 10px;">
+                    <button onClick="{{ goHome }}"
+                      style="border: 0; background: none; font-weight: 800; font-size: 16px; cursor: pointer;">←</button>
+                    <div>
+                      <div style="font-family: 'Archivo'; font-weight: 800; font-size: 17px;">Spa &amp; Massage</div>
+                      <div style="font-size: 11px; color: #7d7979;">28 services · Sector 54, Gurugram</div>
+                    </div>
+                  </div>
+                  <div
+                    style="display: flex; gap: 6px; padding: 10px 16px; overflow-x: auto; border-bottom: 1px solid rgba(32,30,29,.25);">
+                    <sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
+                      <span
+                        style="flex: none; border: 1px solid rgba(32,30,29,.4); padding: 5px 10px; font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; background: {{ f.bg }}; color: {{ f.fg }};">{{
+                        f.label }}</span>
+                    </sc-for>
+                  </div>
+
+                  <sc-for list="{{ services }}" as="s" hint-placeholder-count="4">
+                    <div
+                      style="display: flex; gap: 12px; padding: 14px 16px; border-bottom: 1px solid rgba(32,30,29,.25);">
+                      <div class="gs-tile" style="width: 84px; height: 84px; flex: none;">{{ s.code }}</div>
+                      <div style="flex: 1; min-width: 0;">
+                        <div style="display: flex; gap: 6px; align-items: center; margin-bottom: 3px;">
+                          <span class="tag tag-accent" style="font-weight: 800;">{{ s.badge }}</span>
+                          <span style="font-size: 11px; color: #605d5d;">★ {{ s.rating }} · {{ s.reviews }}</span>
+                        </div>
+                        <button onClick="{{ goService }}"
+                          style="border: 0; background: none; padding: 0; text-align: left; cursor: pointer; font-family: 'Archivo'; font-weight: 800; font-size: 15px; line-height: 1.15;">{{
+                          s.name }}</button>
+                        <div style="font-size: 12px; color: #605d5d; margin-top: 2px;">{{ s.blurb }}</div>
+                        <div style="display: flex; align-items: baseline; gap: 8px; margin-top: 8px;">
+                          <span style="font-family: 'Archivo'; font-weight: 800; font-size: 16px;">{{ s.price }}</span>
+                          <span style="font-size: 12px; color: #9b9797; text-decoration: line-through;">{{ s.mrp
+                            }}</span>
+                          <span style="font-size: 11px; color: #ec3013; font-weight: 800;">{{ s.off }}</span>
+                          <span style="font-size: 11px; color: #7d7979; margin-left: auto;">{{ s.dur }}</span>
+                        </div>
+                        <button class="btn btn-secondary" onClick="{{ addToCart }}"
+                          style="margin-top: 8px; width: 100%; justify-content: flex-start;">ADD TO CART</button>
+                      </div>
+                    </div>
+                  </sc-for>
+                  <div style="height: 90px;"></div>
+                </div>
+              </sc-if>
+
+              <!-- ══ CUSTOMER · SERVICE DETAIL ══ -->
+              <sc-if value="{{ scService }}">
+                <div>
+                  <div class="gs-tile" style="height: 200px; border-bottom: 2px solid rgba(32,30,29,.4);">AROMA THERAPY
+                    · 01 / 04</div>
+                  <div style="padding: 16px;">
+                    <div style="display: flex; gap: 6px; align-items: center;">
+                      <span class="tag tag-accent" style="font-weight: 800;">MOST BOOKED</span>
+                      <span style="font-size: 12px; color: #605d5d;">★ 4.87 · 1,204 reviews</span>
+                    </div>
+                    <h3 style="margin: 8px 0 4px; font-size: 24px; line-height: 1.1;">Aroma Therapy Massage — 60 min
+                    </h3>
+                    <p style="font-size: 13px; color: #605d5d;">Full-body relaxation massage with cold-pressed lavender
+                      and sweet-almond oil. Therapist brings a folding table, fresh linen and a sealed kit.</p>
+                    <div
+                      style="display: flex; align-items: baseline; gap: 10px; padding: 12px 0; border-top: 2px solid rgba(32,30,29,.4); border-bottom: 2px solid rgba(32,30,29,.4);">
+                      <span style="font-family: 'Archivo'; font-weight: 800; font-size: 26px;">₹1,499</span>
+                      <span style="font-size: 14px; color: #9b9797; text-decoration: line-through;">₹1,999</span>
+                      <span style="font-size: 12px; color: #ec3013; font-weight: 800;">25% OFF</span>
+                      <span style="font-size: 12px; color: #7d7979; margin-left: auto;">60 min</span>
+                    </div>
+
+                    <div
+                      style="margin-top: 18px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979;">
+                      What's included</div>
+                    <sc-for list="{{ included }}" as="i" hint-placeholder-count="4">
+                      <div
+                        style="display: flex; gap: 10px; font-size: 13px; padding: 7px 0; border-bottom: 1px solid rgba(32,30,29,.18);">
+                        <span style="color: #ec3013; font-weight: 800;">—</span><span>{{ i }}</span>
+                      </div>
+                    </sc-for>
+
+                    <div
+                      style="margin-top: 18px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979;">
+                      Add-ons</div>
+                    <sc-for list="{{ addons }}" as="a" hint-placeholder-count="3">
+                      <div
+                        style="display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(32,30,29,.18);">
+                        <div style="flex: 1;">
+                          <div style="font-weight: 800; font-size: 13px;">{{ a.name }}</div>
+                          <div style="font-size: 11px; color: #7d7979;">{{ a.dur }}</div>
+                        </div>
+                        <div style="font-weight: 800; font-size: 13px;">{{ a.price }}</div>
+                        <button class="btn btn-secondary" onClick="{{ addToCart }}"
+                          style="padding: 4px 10px;">ADD</button>
+                      </div>
+                    </sc-for>
+
+                    <div
+                      style="margin-top: 18px; border: 1px solid rgba(32,30,29,.4); background: #eae9e9; padding: 12px;">
+                      <div style="font-weight: 800; font-size: 13px;">Hygiene &amp; safety</div>
+                      <div style="font-size: 12px; color: #605d5d; margin-top: 3px;">Single-use disposables, sanitised
+                        tools logged per booking, therapist temperature-checked. Service starts only after you share the
+                        4-digit OTP.</div>
+                    </div>
+
+                    <div style="margin-top: 16px; font-size: 12px; color: #7d7979;">Free cancellation up to 2 hours
+                      before the slot. 50% fee inside 2 hours. No refund after the professional arrives.</div>
+                  </div>
+                  <div style="height: 90px;"></div>
+                </div>
+              </sc-if>
+
+              <!-- ══ CUSTOMER · CART ══ -->
+              <sc-if value="{{ scCart }}">
+                <div>
+                  <div style="padding: 12px 16px; border-bottom: 2px solid rgba(32,30,29,.4);">
+                    <div style="font-family: 'Archivo'; font-weight: 800; font-size: 17px;">Cart</div>
+                    <div style="font-size: 11px; color: #7d7979;">Step 1 of 6 · {{ durLabel }} of service</div>
+                  </div>
+                  <div
+                    style="display: flex; gap: 2px; padding: 10px 16px; border-bottom: 1px solid rgba(32,30,29,.25);">
+                    <sc-for list="{{ steps }}" as="st" hint-placeholder-count="6">
+                      <div style="flex: 1; height: 4px; background: {{ st.bg }};"></div>
+                    </sc-for>
+                  </div>
+
+                  <sc-for list="{{ cart }}" as="it" hint-placeholder-count="2">
+                    <div
+                      style="display: flex; gap: 12px; padding: 14px 16px; border-bottom: 1px solid rgba(32,30,29,.25);">
+                      <div class="gs-tile" style="width: 56px; height: 56px; flex: none;">{{ it.code }}</div>
+                      <div style="flex: 1;">
+                        <div style="font-weight: 800; font-size: 14px; line-height: 1.2;">{{ it.name }}</div>
+                        <div style="font-size: 11px; color: #7d7979;">{{ it.durLabel }} · {{ it.priceLabel }}</div>
+                        <div style="display: flex; align-items: center; gap: 10px; margin-top: 8px;">
+                          <div style="display: flex; border: 1px solid rgba(32,30,29,.4);">
+                            <button onClick="{{ it.dec }}"
+                              style="width: 30px; height: 28px; border: 0; background: none; cursor: pointer; font-weight: 800;">−</button>
+                            <div
+                              style="width: 30px; display: grid; place-items: center; font-weight: 800; font-size: 13px; border-left: 1px solid rgba(32,30,29,.4); border-right: 1px solid rgba(32,30,29,.4);">
+                              {{ it.qty }}</div>
+                            <button onClick="{{ it.inc }}"
+                              style="width: 30px; height: 28px; border: 0; background: none; cursor: pointer; font-weight: 800;">+</button>
+                          </div>
+                          <div style="font-family: 'Archivo'; font-weight: 800; font-size: 15px; margin-left: auto;">{{
+                            it.lineLabel }}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </sc-for>
+
+                  <div style="padding: 14px 16px; border-bottom: 1px solid rgba(32,30,29,.25);">
+                    <div
+                      style="font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979; margin-bottom: 8px;">
+                      Coupon</div>
+                    <div style="display: flex; gap: 6px;">
+                      <input class="input" value="{{ coupon }}" onChange="{{ setCoupon }}" placeholder="Enter code"
+                        style="flex: 1;">
+                      <button class="btn btn-primary" onClick="{{ applyCoupon }}">APPLY</button>
+                    </div>
+                    <div style="font-size: 12px; margin-top: 6px; color: {{ couponColor }};">{{ couponMsg }}</div>
+                  </div>
+
+                  <div style="padding: 14px 16px;">
+                    <div
+                      style="font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979; margin-bottom: 8px;">
+                      Bill</div>
+                    <sc-for list="{{ bill }}" as="b" hint-placeholder-count="5">
+                      <div
+                        style="display: flex; justify-content: space-between; font-size: 13px; padding: 6px 0; border-bottom: 1px solid rgba(32,30,29,.14); color: {{ b.color }};">
+                        <span>{{ b.label }}</span><span style="font-weight: 800;">{{ b.value }}</span>
+                      </div>
+                    </sc-for>
+                    <div
+                      style="display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0 0; margin-top: 6px; border-top: 2px solid rgba(32,30,29,.4);">
+                      <span style="font-family: 'Archivo'; font-weight: 800; font-size: 15px;">Total payable</span>
+                      <span style="font-family: 'Archivo'; font-weight: 800; font-size: 24px;">{{ totalLabel }}</span>
+                    </div>
+                    <div style="font-size: 11px; color: #7d7979; margin-top: 6px;">No hidden charges. Taxes and fees
+                      shown above are final.</div>
+                  </div>
+
+                  <div style="padding: 0 16px 16px;">
+                    <div style="border: 1px solid rgba(32,30,29,.4); background: #eae9e9; padding: 12px;">
+                      <div style="font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979;">
+                        Address</div>
+                      <div style="font-weight: 800; font-size: 14px; margin-top: 3px;">Home · Ananya Rao</div>
+                      <div style="font-size: 12px; color: #605d5d;">B-1204, Ireo Skyon, Sector 60, Golf Course Ext.
+                        Road, Gurugram 122102 · Gate code 4412</div>
+                    </div>
+                  </div>
+                  <div style="height: 90px;"></div>
+                </div>
+              </sc-if>
+
+              <!-- ══ CUSTOMER · SLOT PICKER (hero) ══ -->
+              <sc-if value="{{ scSlots }}">
+                <div>
+                  <div style="padding: 12px 16px; border-bottom: 2px solid rgba(32,30,29,.4);">
+                    <div style="font-family: 'Archivo'; font-weight: 800; font-size: 17px;">Date &amp; time</div>
+                    <div style="font-size: 11px; color: #7d7979;">Step 3 of 6 · needs {{ durLabel }} free</div>
+                  </div>
+
+                  <sc-if value="{{ holdActive }}">
+                    <div
+                      style="background: #ec3013; color: #f3f2f2; padding: 10px 16px; display: flex; align-items: center; gap: 10px;">
+                      <span class="gs-live" style="width: 8px; height: 8px; background: #f3f2f2; flex: none;"></span>
+                      <div style="min-width: 0;">
+                        <div style="font-size: 10px; letter-spacing: .08em; opacity: .85; white-space: nowrap;">SLOT
+                          HELD · RELEASES IN</div>
+                        <div
+                          style="font-family: 'Archivo'; font-weight: 800; font-size: 20px; line-height: 1.1; white-space: nowrap;">
+                          {{ holdLabel }}</div>
+                      </div>
+                      <button onClick="{{ releaseHold }}"
+                        style="margin-left: auto; background: none; border: 1px solid #f3f2f2; color: #f3f2f2; font-size: 10px; font-weight: 800; letter-spacing: .06em; padding: 3px 8px; cursor: pointer;">RELEASE</button>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ holdExpired }}">
+                    <div
+                      style="background: #201e1d; color: #f3f2f2; padding: 10px 16px; font-size: 12px; font-weight: 800; letter-spacing: .04em;">
+                      HOLD EXPIRED — SLOT RETURNED TO THE POOL. PICK AGAIN.</div>
+                  </sc-if>
+
+                  <div
+                    style="display: flex; gap: 2px; padding: 12px 16px; overflow-x: auto; border-bottom: 1px solid rgba(32,30,29,.25);">
+                    <sc-for list="{{ dates }}" as="d" hint-placeholder-count="6">
+                      <button onClick="{{ d.pick }}"
+                        style="flex: none; width: 56px; padding: 8px 0; cursor: pointer; border: 1px solid {{ d.border }}; background: {{ d.bg }}; color: {{ d.fg }}; font-family: 'Archivo';">
+                        <div style="font-size: 10px; letter-spacing: .06em; text-transform: uppercase;">{{ d.dow }}
+                        </div>
+                        <div style="font-weight: 800; font-size: 18px; line-height: 1.1;">{{ d.day }}</div>
+                        <div style="font-size: 9px; letter-spacing: .04em;">{{ d.note }}</div>
+                      </button>
+                    </sc-for>
+                  </div>
+
+                  <sc-for list="{{ slotGroups }}" as="g" hint-placeholder-count="3">
+                    <div style="padding: 14px 16px; border-bottom: 1px solid rgba(32,30,29,.25);">
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px;">
+                        <div style="font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979;">
+                          {{ g.label }}</div>
+                        <div style="font-size: 11px; color: #7d7979;">{{ g.note }}</div>
+                      </div>
+                      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;">
+                        <sc-for list="{{ g.slots }}" as="s" hint-placeholder-count="6">
+                          <button onClick="{{ s.pick }}" disabled="{{ s.disabled }}"
+                            style="padding: 9px 4px; cursor: {{ s.cursor }}; border: 1px solid {{ s.border }}; background: {{ s.bg }}; color: {{ s.fg }}; font-family: 'Archivo'; text-align: left; padding-left: 9px;">
+                            <div style="font-weight: 800; font-size: 14px;">{{ s.time }}</div>
+                            <div style="font-size: 9px; letter-spacing: .05em; text-transform: uppercase;">{{ s.tag }}
+                            </div>
+                          </button>
+                        </sc-for>
+                      </div>
+                    </div>
+                  </sc-for>
+
+                  <div style="padding: 14px 16px;">
+                    <div
+                      style="border: 1px solid rgba(32,30,29,.4); background: #eae9e9; padding: 12px; font-size: 12px; color: #605d5d;">
+                      <span style="font-weight: 800; color: #201e1d;">Why the timer?</span> Holding a slot blocks that
+                      professional's calendar. If you don't pay within 10 minutes we release it so someone else can
+                      book. Peak slots carry a small surge shown on the tile.
+                    </div>
+                  </div>
+                  <div style="height: 90px;"></div>
+                </div>
+              </sc-if>
+
+              <!-- ══ CUSTOMER · PROFESSIONAL ══ -->
+              <sc-if value="{{ scPro }}">
+                <div>
+                  <div style="padding: 12px 16px; border-bottom: 2px solid rgba(32,30,29,.4);">
+                    <div style="font-family: 'Archivo'; font-weight: 800; font-size: 17px;">Professional</div>
+                    <div style="font-size: 11px; color: #7d7979;">Step 4 of 6 · {{ slotSummary }}</div>
+                  </div>
+
+                  <div
+                    style="display: flex; padding: 12px 16px; gap: 2px; border-bottom: 1px solid rgba(32,30,29,.25);">
+                    <button onClick="{{ setAuto }}"
+                      style="flex: 1; padding: 9px; cursor: pointer; font-family: 'Archivo'; font-weight: 800; font-size: 12px; letter-spacing: .04em; border: 1px solid {{ autoBorder }}; background: {{ autoBg }}; color: {{ autoFg }};">AUTO-ASSIGN</button>
+                    <button onClick="{{ setManual }}"
+                      style="flex: 1; padding: 9px; cursor: pointer; font-family: 'Archivo'; font-weight: 800; font-size: 12px; letter-spacing: .04em; border: 1px solid {{ manualBorder }}; background: {{ manualBg }}; color: {{ manualFg }};">CHOOSE
+                      MYSELF</button>
+                  </div>
+
+                  <sc-if value="{{ isAuto }}">
+                    <div style="padding: 16px;">
+                      <div style="border: 2px solid #ec3013; padding: 14px;">
+                        <div style="font-family: 'Archivo'; font-weight: 800; font-size: 16px;">We'll assign the best
+                          available pro</div>
+                        <div style="font-size: 12px; color: #605d5d; margin-top: 4px;">Ranked by skill match, rating,
+                          distance from your address and on-time record. You'll see the name and photo the moment they
+                          accept — usually under 3 minutes.</div>
+                      </div>
+                      <div
+                        style="margin-top: 14px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979;">
+                        Eligible right now</div>
+                      <div style="font-family: 'Archivo'; font-weight: 800; font-size: 34px; margin-top: 4px;">14 pros
+                      </div>
+                      <div style="font-size: 12px; color: #605d5d;">within 6 km of Sector 60, skilled in aroma therapy
+                        and waxing, free at {{ slotSummary }}.</div>
+                    </div>
+                  </sc-if>
+
+                  <sc-if value="{{ isManual }}">
+                    <sc-for list="{{ pros }}" as="p" hint-placeholder-count="3">
+                      <button onClick="{{ p.pick }}"
+                        style="display: block; width: 100%; text-align: left; background: {{ p.bg }}; border: 0; border-bottom: 1px solid rgba(32,30,29,.25); border-left: 4px solid {{ p.mark }}; padding: 14px 16px; cursor: pointer; font-family: 'Archivo';">
+                        <div style="display: flex; gap: 12px;">
+                          <div class="gs-tile" style="width: 52px; height: 52px; flex: none;">{{ p.initials }}</div>
+                          <div style="flex: 1;">
+                            <div style="display: flex; align-items: baseline; gap: 8px;">
+                              <div style="font-weight: 800; font-size: 15px;">{{ p.name }}</div>
+                              <div style="font-size: 12px; color: #605d5d;">★ {{ p.rating }}</div>
+                              <div style="margin-left: auto; font-weight: 800; font-size: 13px;">{{ p.price }}</div>
+                            </div>
+                            <div style="font-size: 12px; color: #605d5d; margin-top: 2px;">{{ p.exp }} · {{ p.jobs }}
+                              services · {{ p.langs }}</div>
+                            <div style="display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap;">
+                              <span class="tag tag-neutral" style="border: 1px solid rgba(32,30,29,.2);">{{ p.dist
+                                }}</span>
+                              <span class="tag tag-neutral" style="border: 1px solid rgba(32,30,29,.2);">Free {{ p.free
+                                }}</span>
+                              <span class="tag tag-accent" style="font-weight: 800;">{{ p.skill }}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </button>
+                    </sc-for>
+                  </sc-if>
+                  <div style="height: 90px;"></div>
+                </div>
+              </sc-if>
+
+              <!-- ══ CUSTOMER · PAYMENT ══ -->
+              <sc-if value="{{ scPay }}">
+                <div>
+                  <div style="padding: 12px 16px; border-bottom: 2px solid rgba(32,30,29,.4);">
+                    <div style="font-family: 'Archivo'; font-weight: 800; font-size: 17px;">Payment</div>
+                    <div style="font-size: 11px; color: #7d7979;">Step 5 of 6 · slot held {{ holdLabel }}</div>
+                  </div>
+
+                  <div style="padding: 14px 16px; border-bottom: 1px solid rgba(32,30,29,.25);">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                      <div>
+                        <div style="font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979;">
+                          Paying now</div>
+                        <div style="font-family: 'Archivo'; font-weight: 800; font-size: 30px;">{{ totalLabel }}</div>
+                      </div>
+                      <button onClick="{{ goCart }}"
+                        style="background: none; border: 1px solid rgba(32,30,29,.4); font-size: 11px; font-weight: 800; letter-spacing: .06em; padding: 5px 9px; cursor: pointer;">VIEW
+                        BILL</button>
+                    </div>
+                    <div style="font-size: 12px; color: #605d5d; margin-top: 6px;">{{ slotSummary }} · {{ proSummary }}
+                      · Sector 60, Gurugram</div>
+                  </div>
+
+                  <div style="padding: 14px 16px;">
+                    <div
+                      style="font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979; margin-bottom: 8px;">
+                      Method</div>
+                    <sc-for list="{{ methods }}" as="m" hint-placeholder-count="5">
+                      <button onClick="{{ m.pick }}"
+                        style="display: flex; width: 100%; align-items: center; gap: 12px; text-align: left; padding: 12px; cursor: pointer; background: {{ m.bg }}; border: 1px solid {{ m.border }}; margin-bottom: 2px; font-family: 'Archivo';">
+                        <span
+                          style="width: 14px; height: 14px; border: 2px solid {{ m.dot }}; background: {{ m.fill }}; flex: none;"></span>
+                        <span style="flex: 1;"><span style="display: block; font-weight: 800; font-size: 14px;">{{
+                            m.name }}</span><span style="display: block; font-size: 11px; color: #7d7979;">{{ m.note
+                            }}</span></span>
+                        <span style="font-size: 11px; color: #ec3013; font-weight: 800;">{{ m.flag }}</span>
+                      </button>
+                    </sc-for>
+                  </div>
+
+                  <sc-if value="{{ payFailed }}">
+                    <div style="margin: 0 16px 14px; border: 2px solid #ec3013; padding: 12px;">
+                      <div style="font-weight: 800; font-size: 14px; color: #ae1800;">Payment failed — nothing was
+                        charged</div>
+                      <div style="font-size: 12px; color: #605d5d; margin-top: 3px;">Your bank declined the mandate
+                        (code U31). Your slot is still held for {{ holdLabel }}. Try another method or retry UPI.</div>
+                      <button class="btn btn-primary" onClick="{{ retryPay }}" style="margin-top: 10px;">RETRY
+                        PAYMENT</button>
+                    </div>
+                  </sc-if>
+
+                  <div style="padding: 0 16px 16px; font-size: 12px; color: #7d7979;">
+                    Payments are captured by the gateway; GlowServe never sees your card. We confirm the booking only
+                    after the signed webhook lands, so a network drop can never double-charge you.
+                  </div>
+                  <div style="height: 90px;"></div>
+                </div>
+              </sc-if>
+
+              <!-- ══ CUSTOMER · CONFIRMATION ══ -->
+              <sc-if value="{{ scDone }}">
+                <div>
+                  <div style="background: #201e1d; color: #f3f2f2; padding: 22px 16px;">
+                    <div style="font-size: 11px; letter-spacing: .1em; text-transform: uppercase; opacity: .7;">Booking
+                      confirmed</div>
+                    <div
+                      style="font-family: 'Archivo'; font-weight: 800; font-size: 30px; letter-spacing: -.02em; margin-top: 4px;">
+                      GS-24817-GGN</div>
+                    <div style="font-size: 13px; opacity: .85; margin-top: 6px;">Paid {{ totalLabel }} via UPI · receipt
+                      sent to ananya.rao@gmail.com</div>
+                  </div>
+                  <div style="padding: 16px;">
+                    <sc-for list="{{ confirmRows }}" as="r" hint-placeholder-count="5">
+                      <div style="display: flex; padding: 10px 0; border-bottom: 1px solid rgba(32,30,29,.2);">
+                        <div
+                          style="width: 96px; flex: none; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979;">
+                          {{ r.k }}</div>
+                        <div style="font-size: 13px; flex: 1;">{{ r.v }}</div>
+                      </div>
+                    </sc-for>
+                    <div
+                      style="margin-top: 16px; border: 1px solid rgba(32,30,29,.4); background: #eae9e9; padding: 12px;">
+                      <div style="font-weight: 800; font-size: 13px;">Finding your professional</div>
+                      <div style="font-size: 12px; color: #605d5d; margin-top: 3px;">Requests have gone out to the 3
+                        best-matched pros. You'll get a notification with their name and photo. If nobody accepts in 15
+                        minutes our ops team assigns manually.</div>
+                    </div>
+                    <button class="btn btn-primary btn-block" onClick="{{ goTrack }}">TRACK BOOKING</button>
+                    <button class="btn btn-secondary btn-block">ADD TO CALENDAR</button>
+                    <button class="btn btn-secondary btn-block">DOWNLOAD INVOICE</button>
+                  </div>
+                  <div style="height: 40px;"></div>
+                </div>
+              </sc-if>
+
+              <!-- ══ CUSTOMER · TRACKING ══ -->
+              <sc-if value="{{ scTrack }}">
+                <div>
+                  <div
+                    style="padding: 12px 16px; border-bottom: 2px solid rgba(32,30,29,.4); display: flex; align-items: center;">
+                    <div>
+                      <div style="font-family: 'Archivo'; font-weight: 800; font-size: 17px;">GS-24817-GGN</div>
+                      <div style="font-size: 11px; color: #7d7979;">Today, 4:00 PM · 90 min</div>
+                    </div>
+                    <span class="gs-live"
+                      style="margin-left: auto; font-size: 10px; font-weight: 800; letter-spacing: .08em; color: #ec3013;">●
+                      LIVE</span>
+                  </div>
+
+                  <div
+                    style="padding: 14px 16px; border-bottom: 1px solid rgba(32,30,29,.25); display: flex; gap: 12px; align-items: center;">
+                    <div class="gs-tile" style="width: 52px; height: 52px; flex: none;">MK</div>
+                    <div style="flex: 1;">
+                      <div style="font-weight: 800; font-size: 15px;">Meera Kulkarni</div>
+                      <div style="font-size: 12px; color: #605d5d;">★ 4.91 · 6 yrs · ID verified · arriving in 12 min
+                      </div>
+                    </div>
+                    <button class="btn btn-secondary" style="padding: 6px 10px;">CALL</button>
+                  </div>
+
+                  <div style="padding: 16px;">
+                    <sc-for list="{{ trackSteps }}" as="s" hint-placeholder-count="7">
+                      <div style="display: flex; gap: 12px;">
+                        <div
+                          style="width: 14px; flex: none; display: flex; flex-direction: column; align-items: center;">
+                          <div
+                            style="width: 12px; height: 12px; background: {{ s.fill }}; border: 2px solid {{ s.ring }};">
+                          </div>
+                          <div style="flex: 1; width: 2px; background: {{ s.line }};"></div>
+                        </div>
+                        <div style="padding-bottom: 18px; flex: 1;">
+                          <div style="font-weight: 800; font-size: 14px; color: {{ s.fg }};">{{ s.label }}</div>
+                          <div style="font-size: 12px; color: #7d7979;">{{ s.time }}</div>
+                        </div>
+                      </div>
+                    </sc-for>
+
+                    <div style="border: 2px solid #ec3013; padding: 14px;">
+                      <div style="font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979;">
+                        Share to start the service</div>
+                      <div
+                        style="font-family: 'Archivo'; font-weight: 800; font-size: 38px; letter-spacing: .18em; color: #ec3013;">
+                        4821</div>
+                      <div style="font-size: 12px; color: #605d5d;">Give this only after you've checked the pro's in-app
+                        ID. A second OTP closes the booking.</div>
+                    </div>
+                    <div style="display: flex; gap: 2px; margin-top: 14px;">
+                      <button class="btn btn-secondary" style="flex: 1;">SUPPORT</button>
+                      <button class="btn btn-secondary" style="flex: 1;">EMERGENCY</button>
+                    </div>
+                    <button onClick="{{ advanceTrack }}"
+                      style="width: 100%; margin-top: 12px; background: #201e1d; color: #f3f2f2; border: 0; padding: 9px; font-family: 'Archivo'; font-weight: 800; font-size: 11px; letter-spacing: .08em; cursor: pointer;">▶
+                      SIMULATE NEXT SOCKET EVENT</button>
+                  </div>
+                </div>
+              </sc-if>
+
+              <!-- ══ PRO · DASHBOARD ══ -->
+              <sc-if value="{{ scProHome }}">
+                <div>
+                  <div
+                    style="padding: 12px 16px; border-bottom: 2px solid rgba(32,30,29,.4); display: flex; align-items: center; gap: 10px;">
+                    <div class="gs-tile" style="width: 38px; height: 38px; flex: none;">MK</div>
+                    <div style="flex: 1;">
+                      <div style="font-family: 'Archivo'; font-weight: 800; font-size: 16px;">Meera Kulkarni</div>
+                      <div style="font-size: 11px; color: #7d7979;">Spa &amp; massage · Gurugram Zone 3</div>
+                    </div>
+                    <button onClick="{{ toggleOnline }}"
+                      style="border: 1px solid {{ onlineBorder }}; background: {{ onlineBg }}; color: {{ onlineFg }}; font-family: 'Archivo'; font-weight: 800; font-size: 10px; letter-spacing: .08em; padding: 6px 9px; cursor: pointer;">{{
+                      onlineLabel }}</button>
+                  </div>
+
+                  <div
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(32,30,29,.4); border-bottom: 2px solid rgba(32,30,29,.4);">
+                    <sc-for list="{{ proKpis }}" as="k" hint-placeholder-count="4">
+                      <div style="background: #f3f2f2; padding: 14px;">
+                        <div style="font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979;">
+                          {{ k.label }}</div>
+                        <div style="font-family: 'Archivo'; font-weight: 800; font-size: 24px; line-height: 1.1;">{{
+                          k.value }}</div>
+                        <div style="font-size: 11px; color: #605d5d;">{{ k.note }}</div>
+                      </div>
+                    </sc-for>
+                  </div>
+
+                  <div style="padding: 14px 16px;">
+                    <div
+                      style="font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979; margin-bottom: 8px;">
+                      New request</div>
+                    <button onClick="{{ goProReq }}"
+                      style="display: block; width: 100%; text-align: left; border: 2px solid #ec3013; background: #fff2ef; padding: 12px; cursor: pointer; font-family: 'Archivo';">
+                      <div style="display: flex; justify-content: space-between;">
+                        <div style="font-weight: 800; font-size: 14px;">Aroma Therapy 60 min + Wax</div>
+                        <div style="font-weight: 800; font-size: 14px; color: #ec3013;">{{ reqLabel }}</div>
+                      </div>
+                      <div style="font-size: 12px; color: #605d5d; margin-top: 3px;">Today 4:00 PM · Sector 60 · 3.2 km
+                        · earn ₹1,120</div>
+                    </button>
+                  </div>
+
+                  <div style="padding: 0 16px 14px;">
+                    <div
+                      style="font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979; margin-bottom: 8px;">
+                      Today</div>
+                    <sc-for list="{{ proJobs }}" as="j" hint-placeholder-count="3">
+                      <div style="display: flex; gap: 12px; padding: 11px 0; border-top: 1px solid rgba(32,30,29,.22);">
+                        <div
+                          style="width: 58px; flex: none; font-family: 'Archivo'; font-weight: 800; font-size: 13px;">{{
+                          j.time }}</div>
+                        <div style="flex: 1;">
+                          <div style="font-weight: 800; font-size: 13px;">{{ j.svc }}</div>
+                          <div style="font-size: 11px; color: #7d7979;">{{ j.where }}</div>
+                        </div>
+                        <div style="font-size: 11px; font-weight: 800; color: {{ j.color }}; letter-spacing: .04em;">{{
+                          j.status }}</div>
+                      </div>
+                    </sc-for>
+                  </div>
+
+                  <div style="padding: 0 16px 20px;">
+                    <div style="border: 1px solid rgba(32,30,29,.4); background: #eae9e9; padding: 12px;">
+                      <div style="font-weight: 800; font-size: 13px;">Incentive · ₹600</div>
+                      <div style="font-size: 12px; color: #605d5d; margin-top: 2px;">Finish 4 more services this week
+                        with a 4.8+ average. 2 of 6 done.</div>
+                      <div style="height: 6px; background: #d7d3d3; margin-top: 8px;">
+                        <div style="width: 33%; height: 6px; background: #ec3013;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </sc-if>
+
+              <!-- ══ PRO · REQUEST ══ -->
+              <sc-if value="{{ scProReq }}">
+                <div>
+                  <div style="background: #ec3013; color: #f3f2f2; padding: 14px 16px;">
+                    <div style="font-size: 11px; letter-spacing: .1em; text-transform: uppercase; opacity: .85;">New
+                      booking request</div>
+                    <div style="display: flex; align-items: baseline; gap: 10px;">
+                      <div style="font-family: 'Archivo'; font-weight: 800; font-size: 32px;">{{ reqLabel }}</div>
+                      <div style="font-size: 12px; opacity: .9;">to accept before it moves to the next pro</div>
+                    </div>
+                    <div style="height: 4px; background: rgba(243,242,242,.3); margin-top: 8px;">
+                      <div style="height: 4px; background: #f3f2f2; width: {{ reqPct }};"></div>
+                    </div>
+                  </div>
+
+                  <div style="padding: 16px;">
+                    <sc-for list="{{ reqRows }}" as="r" hint-placeholder-count="6">
+                      <div style="display: flex; padding: 10px 0; border-bottom: 1px solid rgba(32,30,29,.2);">
+                        <div
+                          style="width: 104px; flex: none; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979;">
+                          {{ r.k }}</div>
+                        <div style="font-size: 13px; flex: 1; font-weight: {{ r.w }};">{{ r.v }}</div>
+                      </div>
+                    </sc-for>
+
+                    <div
+                      style="margin-top: 14px; border: 1px solid rgba(32,30,29,.4); background: #eae9e9; padding: 12px; font-size: 12px; color: #605d5d;">
+                      Exact address and the customer's number unlock only after you accept. Carry: massage table,
+                      lavender + almond oil, 2 linen sets, wax kit.
+                    </div>
+
+                    <div style="display: flex; gap: 2px; margin-top: 14px;">
+                      <button class="btn btn-secondary" onClick="{{ rejectReq }}" style="flex: 1;">REJECT</button>
+                      <button class="btn btn-primary" onClick="{{ acceptReq }}" style="flex: 2;">ACCEPT ·
+                        ₹1,120</button>
+                    </div>
+                    <sc-if value="{{ rejecting }}">
+                      <div style="margin-top: 12px; border: 2px solid #201e1d; padding: 12px;">
+                        <div style="font-weight: 800; font-size: 13px;">Why are you rejecting?</div>
+                        <div style="font-size: 11px; color: #7d7979; margin-bottom: 8px;">Required. Repeated rejections
+                          lower your acceptance rate.</div>
+                        <sc-for list="{{ rejectReasons }}" as="r" hint-placeholder-count="4">
+                          <div style="font-size: 13px; padding: 7px 0; border-top: 1px solid rgba(32,30,29,.18);">{{ r
+                            }}</div>
+                        </sc-for>
+                      </div>
+                    </sc-if>
+                  </div>
+                </div>
+              </sc-if>
+
+              <!-- ══ PRO · ACTIVE JOB / OTP (hero) ══ -->
+              <sc-if value="{{ scProJob }}">
+                <div>
+                  <div style="padding: 12px 16px; border-bottom: 2px solid rgba(32,30,29,.4);">
+                    <div style="font-family: 'Archivo'; font-weight: 800; font-size: 17px;">GS-24817-GGN</div>
+                    <div style="font-size: 11px; color: #7d7979;">Ananya R. · Sector 60 · 4:00 PM · 90 min · ₹1,120
+                    </div>
+                  </div>
+
+                  <div
+                    style="display: flex; gap: 2px; padding: 12px 16px; border-bottom: 1px solid rgba(32,30,29,.25);">
+                    <sc-for list="{{ jobBars }}" as="b" hint-placeholder-count="6">
+                      <div style="flex: 1;">
+                        <div style="height: 4px; background: {{ b.bg }};"></div>
+                        <div
+                          style="font-size: 8px; letter-spacing: .04em; text-transform: uppercase; margin-top: 4px; color: {{ b.fg }};">
+                          {{ b.label }}</div>
+                      </div>
+                    </sc-for>
+                  </div>
+
+                  <div style="padding: 16px;">
+                    <div style="font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979;">
+                      Current step</div>
+                    <h4 style="font-size: 22px; margin: 2px 0 6px;">{{ jobTitle }}</h4>
+                    <p style="font-size: 13px; color: #605d5d;">{{ jobBlurb }}</p>
+
+                    <sc-if value="{{ jobNeedsOtp }}">
+                      <div style="border: 2px solid #ec3013; padding: 14px; margin-top: 6px;">
+                        <div style="font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979;">
+                          {{ otpLabel }}</div>
+                        <input class="input" value="{{ otp }}" onChange="{{ setOtp }}" inputMode="numeric"
+                          placeholder="• • • •"
+                          style="font-family: 'Archivo'; font-weight: 800; font-size: 30px; letter-spacing: .3em; text-align: center; height: 60px; margin-top: 8px; background: #f3f2f2;">
+                        <div style="font-size: 12px; margin-top: 6px; color: {{ otpColor }};">{{ otpMsg }}</div>
+                        <button class="btn btn-primary btn-block" onClick="{{ verifyOtp }}">VERIFY OTP</button>
+                        <button class="btn btn-ghost" style="margin-top: 6px;">Customer can't find the OTP →</button>
+                      </div>
+                    </sc-if>
+
+                    <sc-if value="{{ jobHasChecklist }}">
+                      <div style="border: 1px solid rgba(32,30,29,.4); padding: 12px; margin-top: 6px;">
+                        <div
+                          style="font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979; margin-bottom: 6px;">
+                          {{ checklistTitle }}</div>
+                        <sc-for list="{{ checklist }}" as="c" hint-placeholder-count="4">
+                          <button onClick="{{ c.toggle }}"
+                            style="display: flex; width: 100%; gap: 10px; align-items: center; text-align: left; background: none; border: 0; border-top: 1px solid rgba(32,30,29,.18); padding: 9px 0; cursor: pointer; font-family: 'Archivo';">
+                            <span
+                              style="width: 16px; height: 16px; flex: none; border: 2px solid {{ c.ring }}; background: {{ c.fill }};"></span>
+                            <span style="font-size: 13px;">{{ c.label }}</span>
+                          </button>
+                        </sc-for>
+                      </div>
+                    </sc-if>
+
+                    <sc-if value="{{ jobRunning }}">
+                      <div
+                        style="border: 2px solid #201e1d; padding: 14px; margin-top: 6px; display: flex; align-items: baseline; gap: 10px;">
+                        <div>
+                          <div
+                            style="font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979;">
+                            Service timer</div>
+                          <div style="font-family: 'Archivo'; font-weight: 800; font-size: 34px;">{{ jobTimer }}</div>
+                        </div>
+                        <div style="font-size: 12px; color: #605d5d; margin-left: auto; text-align: right;">Scheduled 90
+                          min<br>Ops sees this live</div>
+                      </div>
+                    </sc-if>
+
+                    <sc-if value="{{ jobDone }}">
+                      <div style="background: #201e1d; color: #f3f2f2; padding: 16px; margin-top: 6px;">
+                        <div style="font-size: 11px; letter-spacing: .1em; text-transform: uppercase; opacity: .7;">
+                          Booking closed</div>
+                        <div style="font-family: 'Archivo'; font-weight: 800; font-size: 26px;">₹1,120 earned</div>
+                        <div style="font-size: 12px; opacity: .85; margin-top: 4px;">₹960 base + ₹160 peak incentive.
+                          Settles Monday in your HDFC ••4471. Commission ₹280 already netted off.</div>
+                      </div>
+                    </sc-if>
+
+                    <sc-if value="{{ jobHasPrimary }}">
+                      <button class="btn btn-primary btn-block" onClick="{{ jobNext }}">{{ jobCta }}</button>
+                    </sc-if>
+                    <button class="btn btn-secondary btn-block" onClick="{{ jobReset }}">RESTART DEMO</button>
+                    <button class="btn btn-ghost" style="margin-top: 8px;">Report an incident →</button>
+                  </div>
+                </div>
+              </sc-if>
+
+            </div>
+
+            <sc-if value="{{ hasBar }}">
+              <div
+                style="border-top: 2px solid rgba(32,30,29,.4); background: #eae9e9; padding: 10px 16px; display: flex; align-items: center; gap: 12px;">
+                <div style="min-width: 0;">
+                  <div style="font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #7d7979;">{{
+                    barLabel }}</div>
+                  <div style="font-family: 'Archivo'; font-weight: 800; font-size: 17px;">{{ barValue }}</div>
+                </div>
+                <button class="btn btn-primary" onClick="{{ barGo }}" style="margin-left: auto; padding: 10px 16px;">{{
+                  barCta }}</button>
+              </div>
+            </sc-if>
+          </div>
+        </sc-if>
+
+        <!-- ══ ADMIN ══ -->
+        <sc-if value="{{ isAdmin }}">
+          <div
+            style="width: 100%; max-width: 1400px; border: 2px solid #201e1d; background: #f3f2f2; display: flex; min-height: 860px; box-shadow: 0 12px 32px rgba(45,43,43,.22);">
+            <div style="width: 196px; flex: none; border-right: 2px solid rgba(32,30,29,.4); padding: 14px 0;">
+              <div
+                style="padding: 0 14px 12px; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #7d7979;">
+                Ops Console</div>
+              <sc-for list="{{ adminNav }}" as="n" hint-placeholder-count="12">
+                <button onClick="{{ n.go }}"
+                  style="display: block; width: 100%; text-align: left; padding: 8px 14px; border: 0; border-left: 3px solid {{ n.mark }}; background: {{ n.bg }}; color: {{ n.fg }}; font-family: 'Archivo'; font-weight: {{ n.w }}; font-size: 13px; cursor: pointer;">{{
+                  n.label }}</button>
+              </sc-for>
+              <div
+                style="margin: 16px 14px 0; padding-top: 12px; border-top: 1px solid rgba(32,30,29,.25); font-size: 11px; color: #7d7979;">
+                Signed in as<br><span style="font-weight: 800; color: #201e1d;">Rohit Menon</span><br>Operations
+                Manager<br>booking:assign · refund:create</div>
+            </div>
+
+            <div style="flex: 1; min-width: 0;">
+
+              <sc-if value="{{ scOverview }}">
+                <div>
+                  <div
+                    style="padding: 16px 20px; border-bottom: 2px solid rgba(32,30,29,.4); display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
+                    <div>
+                      <h4 style="margin: 0; font-size: 22px;">Overview</h4>
+                      <div style="font-size: 12px; color: #7d7979;">1–30 July 2026 · all cities · vs previous 30 days
+                      </div>
+                    </div>
+                    <div style="margin-left: auto; display: flex; gap: 2px;">
+                      <sc-for list="{{ ranges }}" as="r" hint-placeholder-count="4">
+                        <button onClick="{{ r.pick }}"
+                          style="border: 1px solid {{ r.border }}; background: {{ r.bg }}; color: {{ r.fg }}; font-family: 'Archivo'; font-weight: 800; font-size: 11px; letter-spacing: .06em; padding: 6px 10px; cursor: pointer;">{{
+                          r.label }}</button>
+                      </sc-for>
+                      <button class="btn btn-secondary" style="margin-left: 8px;">EXPORT CSV</button>
+                    </div>
+                  </div>
+
+                  <div
+                    style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px; background: rgba(32,30,29,.4); border-bottom: 2px solid rgba(32,30,29,.4);">
+                    <sc-for list="{{ kpis }}" as="k" hint-placeholder-count="12">
+                      <div style="background: #f3f2f2; padding: 12px 14px; min-width: 0;">
+                        <div style="font-size: 10px; letter-spacing: .07em; text-transform: uppercase; color: #7d7979;">
+                          {{ k.label }}</div>
+                        <div
+                          style="font-family: 'Archivo'; font-weight: 800; font-size: 21px; line-height: 1.15; margin-top: 2px; white-space: nowrap;">
+                          {{ k.value }}</div>
+                        <div style="font-size: 11px; font-weight: 800; color: {{ k.color }};">{{ k.delta }}</div>
+                      </div>
+                    </sc-for>
+                  </div>
+
+                  <div
+                    style="display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 2px; background: rgba(32,30,29,.4); border-bottom: 2px solid rgba(32,30,29,.4);">
+                    <div style="background: #f3f2f2; padding: 16px 20px;">
+                      <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                        <div>
+                          <div style="font-family: 'Archivo'; font-weight: 800; font-size: 15px;">Gross booking value
+                          </div>
+                          <div style="font-size: 11px; color: #7d7979;">Daily, ₹ lakh · dotted line is the prior period
+                          </div>
+                        </div>
+                        <div style="text-align: right;">
+                          <div style="font-family: 'Archivo'; font-weight: 800; font-size: 20px;">₹4.62 Cr</div>
+                          <div style="font-size: 11px; font-weight: 800; color: #ae1800;">+18.4%</div>
+                        </div>
+                      </div>
+                      <svg viewBox="0 0 620 200"
+                        style="width: 100%; height: 200px; margin-top: 12px; overflow: visible;">
+                        <g stroke="rgba(32,30,29,.18)" stroke-width="1">
+                          <line x1="0" y1="10" x2="620" y2="10"></line>
+                          <line x1="0" y1="55" x2="620" y2="55"></line>
+                          <line x1="0" y1="100" x2="620" y2="100"></line>
+                          <line x1="0" y1="145" x2="620" y2="145"></line>
+                        </g>
+                        <line x1="0" y1="185" x2="620" y2="185" stroke="rgba(32,30,29,.4)" stroke-width="2"></line>
+                        <polyline fill="none" stroke="#9b9797" stroke-width="2" stroke-dasharray="4 4"
+                          points="0,150 52,142 104,146 155,132 207,136 259,120 310,126 362,112 414,118 465,104 517,110 568,96 620,102">
+                        </polyline>
+                        <polyline fill="none" stroke="#ec3013" stroke-width="3"
+                          points="0,138 52,124 104,130 155,106 207,112 259,88 310,96 362,70 414,78 465,54 517,62 568,34 620,42">
+                        </polyline>
+                        <g fill="#ec3013">
+                          <circle cx="568" cy="34" r="4"></circle>
+                        </g>
+                        <g fill="#7d7979" font-size="10" font-family="Archivo">
+                          <text x="0" y="198">1 Jul</text><text x="200" y="198">10 Jul</text><text x="400" y="198">20
+                            Jul</text><text x="580" y="198">30 Jul</text>
+                        </g>
+                      </svg>
+                    </div>
+                    <div style="background: #f3f2f2; padding: 16px 20px;">
+                      <div style="font-family: 'Archivo'; font-weight: 800; font-size: 15px;">Payment mix</div>
+                      <div style="font-size: 11px; color: #7d7979;">Share of paid bookings</div>
+                      <div style="display: flex; align-items: center; gap: 18px; margin-top: 14px;">
+                        <svg viewBox="0 0 42 42"
+                          style="width: 116px; height: 116px; flex: none; transform: rotate(-90deg);">
+                          <circle cx="21" cy="21" r="15.9" fill="none" stroke="#ec3013" stroke-width="9"
+                            stroke-dasharray="58 42"></circle>
+                          <circle cx="21" cy="21" r="15.9" fill="none" stroke="#201e1d" stroke-width="9"
+                            stroke-dasharray="21 79" stroke-dashoffset="-58"></circle>
+                          <circle cx="21" cy="21" r="15.9" fill="none" stroke="#9b9797" stroke-width="9"
+                            stroke-dasharray="13 87" stroke-dashoffset="-79"></circle>
+                          <circle cx="21" cy="21" r="15.9" fill="none" stroke="#d7d3d3" stroke-width="9"
+                            stroke-dasharray="8 92" stroke-dashoffset="-92"></circle>
+                        </svg>
+                        <div style="flex: 1;">
+                          <sc-for list="{{ payMix }}" as="p" hint-placeholder-count="4">
+                            <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; padding: 4px 0;">
+                              <span style="width: 10px; height: 10px; background: {{ p.c }}; flex: none;"></span><span
+                                style="flex: 1;">{{ p.label }}</span><span style="font-weight: 800;">{{ p.v }}</span>
+                            </div>
+                          </sc-for>
+                        </div>
+                      </div>
+                      <div
+                        style="margin-top: 12px; font-size: 11px; color: #7d7979; border-top: 1px solid rgba(32,30,29,.25); padding-top: 8px;">
+                        Cash-after-service is capped at 8% of volume by policy.</div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; background: rgba(32,30,29,.4);">
+                    <div style="background: #f3f2f2; padding: 16px 20px;">
+                      <div style="font-family: 'Archivo'; font-weight: 800; font-size: 15px;">Category revenue</div>
+                      <div style="font-size: 11px; color: #7d7979; margin-bottom: 12px;">₹ lakh, this month</div>
+                      <sc-for list="{{ catBars }}" as="c" hint-placeholder-count="6">
+                        <div style="margin-bottom: 9px;">
+                          <div style="display: flex; justify-content: space-between; font-size: 12px;"><span>{{ c.label
+                              }}</span><span style="font-weight: 800;">{{ c.v }}</span></div>
+                          <div style="height: 8px; background: #e0dcdc; margin-top: 3px;">
+                            <div style="height: 8px; background: {{ c.c }}; width: {{ c.w }};"></div>
+                          </div>
+                        </div>
+                      </sc-for>
+                    </div>
+                    <div style="background: #f3f2f2; padding: 16px 20px;">
+                      <div style="font-family: 'Archivo'; font-weight: 800; font-size: 15px;">Booking funnel</div>
+                      <div style="font-size: 11px; color: #7d7979; margin-bottom: 12px;">Sessions → completed service
+                      </div>
+                      <sc-for list="{{ funnel }}" as="f" hint-placeholder-count="6">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+                          <div style="width: 96px; flex: none; font-size: 11px; color: #605d5d;">{{ f.label }}</div>
+                          <div style="flex: 1; height: 18px; background: #e0dcdc;">
+                            <div style="height: 18px; background: #201e1d; width: {{ f.w }};"></div>
+                          </div>
+                          <div style="width: 60px; text-align: right; font-size: 11px; font-weight: 800;">{{ f.v }}
+                          </div>
+                        </div>
+                      </sc-for>
+                      <div style="font-size: 11px; color: #ae1800; font-weight: 800; margin-top: 8px;">Biggest drop:
+                        slot → payment (−31%). Hold expiry is the top cause.</div>
+                    </div>
+                    <div style="background: #f3f2f2; padding: 16px 20px;">
+                      <div style="font-family: 'Archivo'; font-weight: 800; font-size: 15px;">Slot demand heatmap</div>
+                      <div style="font-size: 11px; color: #7d7979; margin-bottom: 12px;">Bookings by day × time band
+                      </div>
+                      <div style="display: grid; grid-template-columns: 34px repeat(7, 1fr); gap: 2px; font-size: 9px;">
+                        <sc-for list="{{ heat }}" as="h" hint-placeholder-count="40">
+                          <div
+                            style="background: {{ h.bg }}; color: {{ h.fg }}; height: 22px; display: grid; place-items: center; font-family: 'Archivo'; font-weight: 800; letter-spacing: .04em;">
+                            {{ h.label }}</div>
+                        </sc-for>
+                      </div>
+                      <div
+                        style="display: flex; align-items: center; gap: 6px; margin-top: 10px; font-size: 10px; color: #7d7979;">
+                        <span>Low</span><span style="width: 18px; height: 8px; background: #ffe0d9;"></span><span
+                          style="width: 18px; height: 8px; background: #ff9783;"></span><span
+                          style="width: 18px; height: 8px; background: #ff563c;"></span><span
+                          style="width: 18px; height: 8px; background: #ae1800;"></span><span>High</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ scLive }}">
+                <div>
+                  <div
+                    style="padding: 16px 20px; border-bottom: 2px solid rgba(32,30,29,.4); display: flex; align-items: baseline; gap: 14px;">
+                    <div>
+                      <h4 style="margin: 0; font-size: 22px;">Live operations</h4>
+                      <div style="font-size: 12px; color: #7d7979;">Socket feed · Gurugram + Delhi · refreshed 2s ago
+                      </div>
+                    </div>
+                    <span class="gs-live"
+                      style="font-size: 10px; font-weight: 800; letter-spacing: .08em; color: #ec3013;">●
+                      CONNECTED</span>
+                    <div style="margin-left: auto; display: flex; gap: 6px;">
+                      <input class="input" placeholder="Booking ID, phone, pro…" style="width: 220px;">
+                      <button class="btn btn-secondary">FILTERS · 2</button>
+                    </div>
+                  </div>
+
+                  <div
+                    style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2px; background: rgba(32,30,29,.4); border-bottom: 2px solid rgba(32,30,29,.4);">
+                    <sc-for list="{{ liveStats }}" as="s" hint-placeholder-count="5">
+                      <div style="background: {{ s.bg }}; padding: 12px 14px;">
+                        <div
+                          style="font-size: 10px; letter-spacing: .07em; text-transform: uppercase; color: {{ s.lc }};">
+                          {{ s.label }}</div>
+                        <div style="font-family: 'Archivo'; font-weight: 800; font-size: 26px; color: {{ s.vc }};">{{
+                          s.v }}</div>
+                      </div>
+                    </sc-for>
+                  </div>
+
+                  <div
+                    style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; background: rgba(32,30,29,.4);">
+                    <sc-for list="{{ liveCols }}" as="col" hint-placeholder-count="3">
+                      <div style="background: #f3f2f2; padding: 14px 16px; min-height: 520px;">
+                        <div
+                          style="display: flex; align-items: baseline; gap: 8px; padding-bottom: 8px; border-bottom: 2px solid rgba(32,30,29,.4);">
+                          <div style="font-family: 'Archivo'; font-weight: 800; font-size: 14px;">{{ col.title }}</div>
+                          <div style="font-size: 11px; color: #7d7979; margin-left: auto;">{{ col.count }}</div>
+                        </div>
+                        <sc-for list="{{ col.items }}" as="i" hint-placeholder-count="4">
+                          <button onClick="{{ i.go }}" class="gs-row"
+                            style="display: block; width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px solid rgba(32,30,29,.2); border-left: 3px solid {{ i.mark }}; padding: 10px 10px; font-family: 'Archivo';">
+                            <div style="min-width: 0;">
+                              <div style="font-weight: 800; font-size: 12px; white-space: nowrap;">{{ i.id }}</div>
+                              <div
+                                style="font-size: 10px; color: {{ i.sc }}; font-weight: 800; letter-spacing: .03em; overflow-wrap: anywhere;">
+                                {{ i.state }}</div>
+                            </div>
+                            <div style="font-size: 12px; margin-top: 2px;">{{ i.svc }}</div>
+                            <div style="font-size: 11px; color: #7d7979;">{{ i.meta }}</div>
+                          </button>
+                        </sc-for>
+                      </div>
+                    </sc-for>
+                  </div>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ scBooking }}">
+                <div>
+                  <div
+                    style="padding: 16px 20px; border-bottom: 2px solid rgba(32,30,29,.4); display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;">
+                    <div>
+                      <h4 style="margin: 0; font-size: 22px;">Bookings</h4>
+                      <div style="font-size: 12px; color: #7d7979;">3,418 results · 12 columns · saved filter “NCR
+                        exceptions”</div>
+                    </div>
+                    <div style="margin-left: auto; display: flex; gap: 6px;">
+                      <input class="input" placeholder="Search…" style="width: 180px;">
+                      <button class="btn btn-secondary">COLUMNS</button>
+                      <button class="btn btn-secondary">EXPORT</button>
+                    </div>
+                  </div>
+
+                  <div style="display: flex;">
+                    <div style="flex: 1; min-width: 0; overflow-x: auto;">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Booking</th>
+                            <th>Customer</th>
+                            <th>Professional</th>
+                            <th>Service</th>
+                            <th>Zone</th>
+                            <th>Scheduled</th>
+                            <th>Amount</th>
+                            <th>Payment</th>
+                            <th>State</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <sc-for list="{{ bookingRows }}" as="r" hint-placeholder-count="8">
+                            <tr class="gs-row" onClick="{{ r.go }}" style="background: {{ r.bg }};">
+                              <td style="font-weight: 800; white-space: nowrap;">{{ r.id }}</td>
+                              <td style="white-space: nowrap;">{{ r.cust }}</td>
+                              <td style="white-space: nowrap; color: {{ r.proColor }};">{{ r.pro }}</td>
+                              <td style="white-space: nowrap;">{{ r.svc }}</td>
+                              <td>{{ r.zone }}</td>
+                              <td style="white-space: nowrap;">{{ r.when }}</td>
+                              <td style="font-weight: 800; white-space: nowrap;">{{ r.amt }}</td>
+                              <td><span class="tag {{ r.payTag }}">{{ r.pay }}</span></td>
+                              <td
+                                style="font-size: 11px; font-weight: 800; letter-spacing: .03em; color: {{ r.stateColor }}; white-space: nowrap;">
+                                {{ r.state }}</td>
+                              <td style="color: #7d7979;">⋯</td>
+                            </tr>
+                          </sc-for>
+                        </tbody>
+                      </table>
+                      <div
+                        style="display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-top: 2px solid rgba(32,30,29,.4); font-size: 12px; color: #7d7979;">
+                        <span>Rows 1–8 of 3,418</span>
+                        <div style="margin-left: auto; display: flex; gap: 2px;">
+                          <button class="btn btn-secondary" style="padding: 4px 10px;">PREV</button>
+                          <button class="btn btn-secondary" style="padding: 4px 10px;">NEXT</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div style="width: 400px; flex: none; border-left: 2px solid rgba(32,30,29,.4); min-height: 700px;">
+                      <div style="padding: 14px 16px; border-bottom: 2px solid rgba(32,30,29,.4);">
+                        <div style="display: flex; align-items: baseline; gap: 8px;">
+                          <div style="font-family: 'Archivo'; font-weight: 800; font-size: 17px;">GS-24802-GGN</div>
+                          <span class="tag tag-accent"
+                            style="font-weight: 800; margin-left: auto;">ASSIGNMENT_FAILED</span>
+                        </div>
+                        <div style="font-size: 12px; color: #7d7979; margin-top: 2px;">Created 3:02 PM · slot 4:30 PM ·
+                          SLA breach in 6 min</div>
+                      </div>
+
+                      <div style="padding: 14px 16px; border-bottom: 1px solid rgba(32,30,29,.25);">
+                        <sc-for list="{{ detailRows }}" as="d" hint-placeholder-count="6">
+                          <div style="display: flex; padding: 6px 0;">
+                            <div
+                              style="width: 108px; flex: none; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: #7d7979;">
+                              {{ d.k }}</div>
+                            <div style="font-size: 13px; flex: 1;">{{ d.v }}</div>
+                          </div>
+                        </sc-for>
+                      </div>
+
+                      <div style="padding: 14px 16px; border-bottom: 1px solid rgba(32,30,29,.25);">
+                        <div
+                          style="font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: #7d7979; margin-bottom: 8px;">
+                          Assignment attempts</div>
+                        <sc-for list="{{ attempts }}" as="a" hint-placeholder-count="4">
+                          <div
+                            style="display: flex; gap: 10px; font-size: 12px; padding: 6px 0; border-top: 1px solid rgba(32,30,29,.18);">
+                            <span style="width: 16px; font-weight: 800; color: #7d7979;">{{ a.n }}</span>
+                            <span style="flex: 1;">{{ a.pro }}</span>
+                            <span style="color: {{ a.color }}; font-weight: 800;">{{ a.result }}</span>
+                            <span style="color: #7d7979;">{{ a.t }}</span>
+                          </div>
+                        </sc-for>
+                      </div>
+
+                      <div style="padding: 14px 16px; border-bottom: 1px solid rgba(32,30,29,.25);">
+                        <div
+                          style="font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: #7d7979; margin-bottom: 8px;">
+                          Status history</div>
+                        <sc-for list="{{ history }}" as="h" hint-placeholder-count="5">
+                          <div style="display: flex; gap: 10px; font-size: 12px; padding: 5px 0;">
+                            <span style="width: 54px; flex: none; color: #7d7979;">{{ h.t }}</span>
+                            <span style="font-weight: 800; letter-spacing: .03em; color: {{ h.color }};">{{ h.state
+                              }}</span>
+                            <span style="color: #7d7979; margin-left: auto;">{{ h.by }}</span>
+                          </div>
+                        </sc-for>
+                      </div>
+
+                      <div style="padding: 14px 16px;">
+                        <div
+                          style="font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: #7d7979; margin-bottom: 8px;">
+                          Actions</div>
+                        <button class="btn btn-primary btn-block">ASSIGN MANUALLY</button>
+                        <button class="btn btn-secondary btn-block">WIDEN RADIUS TO 12 KM</button>
+                        <button class="btn btn-secondary btn-block">CALL CUSTOMER</button>
+                        <button class="btn btn-secondary btn-block">CANCEL &amp; FULL REFUND</button>
+                        <div style="margin-top: 12px; font-size: 11px; color: #7d7979;">refund:approve is not in your
+                          role. Finance approval required above ₹5,000.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </sc-if>
+
+            </div>
+          </div>
+        </sc-if>
+
+      </div>
+    </div>
+
+  </x-dc>
+  <script type="text/x-dc" data-dc-script
+    data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:960}}">
+const F = n => '₹' + n.toLocaleString('en-IN');
+const ACC = '#ec3013', INK = '#201e1d', MUT = '#7d7979', LINE = 'rgba(32,30,29,.4)';
+
+const CUSTOMER_SCREENS = [
+  ['home', 'Home'], ['category', 'Category'], ['service', 'Service'], ['cart', 'Cart'],
+  ['slots', 'Slot + hold'], ['pro', 'Professional'], ['pay', 'Payment'], ['done', 'Confirmed'], ['track', 'Tracking'],
+];
+const PRO_SCREENS = [['prohome', 'Dashboard'], ['proreq', 'Request'], ['projob', 'Active job + OTP']];
+const ADMIN_SCREENS = [['overview', 'Overview'], ['live', 'Live ops'], ['booking', 'Bookings + detail']];
+
+const JOB_STEPS = [
+  { key: 'travel', label: 'TRAVEL', title: 'Head to the customer', blurb: 'Sector 60, Golf Course Ext. Road — 3.2 km, about 14 min. The full address unlocked when you accepted.', cta: 'START TRAVEL' },
+  { key: 'enroute', label: 'EN ROUTE', title: 'On the way', blurb: 'Customer can see your ETA. Tap arrived when you reach the gate; the guard code is 4412.', cta: 'MARK ARRIVED' },
+  { key: 'otp1', label: 'START OTP', title: 'Verify the start OTP', blurb: 'Show your in-app ID, then ask Ananya for the 4-digit code on her tracking screen. Try 4821.', cta: '' },
+  { key: 'running', label: 'IN SERVICE', title: 'Service in progress', blurb: 'Kit checklist below is logged against the booking. Add-ons can still be added and billed.', cta: 'FINISH SERVICE' },
+  { key: 'otp2', label: 'CLOSE OTP', title: 'Verify the completion OTP', blurb: 'Ananya gets a fresh code once you finish. Enter it to close the booking and release earnings. Try 4821.', cta: '' },
+  { key: 'done', label: 'SETTLED', title: 'Booking completed', blurb: 'Earnings posted to your pending balance. Ratings usually arrive within an hour.', cta: '' },
+];
+
+class Component extends DCLogic {
+  state = {
+    role: 'customer', screen: 'home',
+    cart: [
+      { id: 'a', code: 'AROMA', name: 'Aroma Therapy Massage — 60 min', price: 1499, dur: 60, qty: 1 },
+      { id: 'b', code: 'WAX', name: 'Full Arms + Underarms Wax', price: 649, dur: 30, qty: 1 },
+    ],
+    coupon: 'GLOW20', applied: false, member: true,
+    dateIdx: 0, slot: null, hold: 0, holdExpired: false,
+    proMode: 'auto', proId: null,
+    method: 'upi', payFailed: false,
+    trackStep: 3,
+    online: true, req: 42, rejecting: false,
+    jobStep: 0, otp: '', otpMsg: 'Ask the customer for the code shown on their tracking screen.', otpOk: false,
+    checks: {}, jobSecs: 0,
+    adminScreen: 'overview', range: '30d',
+  };
+
+  componentDidMount() {
+    this.t = setInterval(() => {
+      const s = this.state;
+      const n = {};
+      if (s.hold > 0) { n.hold = s.hold - 1; if (s.hold === 1) { n.holdExpired = true; n.slot = null; } }
+      if (s.role === 'professional' && s.req > 0) n.req = s.req - 1;
+      if (s.role === 'professional' && JOB_STEPS[s.jobStep].key === 'running') n.jobSecs = s.jobSecs + 1;
+      if (Object.keys(n).length) this.setState(n);
+    }, 1000);
+  }
+  componentWillUnmount() { clearInterval(this.t); }
+
+  go(screen) { this.setState({ screen }); }
+  totals() {
+    const s = this.state;
+    const sub = s.cart.reduce((a, i) => a + i.price * i.qty, 0);
+    const coupon = s.applied ? Math.min(400, Math.round(sub * 0.2)) : 0;
+    const member = s.member ? Math.round((sub - coupon) * 0.1) : 0;
+    const fee = s.member ? 0 : 49;
+    const tax = Math.round((sub - coupon - member) * 0.18);
+    return { sub, coupon, member, fee, tax, total: sub - coupon - member + fee + tax, dur: s.cart.reduce((a, i) => a + i.dur * i.qty, 0) };
+  }
+  mmss(n) { return String(Math.floor(n / 60)).padStart(2, '0') + ':' + String(n % 60).padStart(2, '0'); }
+
+  pickSlot(id) { this.setState({ slot: id, hold: 600, holdExpired: false }); }
+
+  renderVals() {
+    const s = this.state, t = this.totals();
+    const isCustomer = s.role === 'customer', isPro = s.role === 'professional', isAdmin = s.role === 'admin';
+    const sel = (on, activeBg) => on
+      ? { bg: activeBg || ACC, border: activeBg || ACC, fg: '#f3f2f2' }
+      : { bg: 'transparent', border: LINE, fg: INK };
+
+    const tabs = (isAdmin ? ADMIN_SCREENS : isPro ? PRO_SCREENS : CUSTOMER_SCREENS).map(([k, label]) => ({
+      label, on: (isAdmin ? s.adminScreen : s.screen) === k ? '1' : '0',
+      go: () => isAdmin ? this.setState({ adminScreen: k }) : this.go(k),
+    }));
+
+    // ── slots ──
+    const dates = [
+      { dow: 'Thu', day: '30', note: 'Today' }, { dow: 'Fri', day: '31', note: '6 slots' },
+      { dow: 'Sat', day: '01', note: 'Busy' }, { dow: 'Sun', day: '02', note: '9 slots' },
+      { dow: 'Mon', day: '03', note: '11 slots' }, { dow: 'Tue', day: '04', note: '11 slots' },
+    ].map((d, i) => ({ ...d, pick: () => this.setState({ dateIdx: i, slot: null, hold: 0, holdExpired: false }), ...sel(s.dateIdx === i, INK) }));
+
+    const mkSlot = (time, tag, state) => {
+      const on = s.slot === time;
+      const off = state === 'off';
+      return {
+        time, tag: off ? 'Booked' : tag, disabled: off, cursor: off ? 'not-allowed' : 'pointer',
+        pick: off ? (() => {}) : (() => this.pickSlot(time)),
+        bg: on ? ACC : off ? '#eae9e9' : 'transparent',
+        border: on ? ACC : off ? '#d7d3d3' : LINE,
+        fg: on ? '#f3f2f2' : off ? '#bab6b6' : INK,
+      };
+    };
+    const slotGroups = [
+      { label: 'Morning', note: '8 AM – 12 PM', slots: [mkSlot('08:00', 'Free'), mkSlot('09:00', 'Free'), mkSlot('10:00', '', 'off'), mkSlot('10:30', 'Free'), mkSlot('11:00', 'Free'), mkSlot('11:30', '', 'off')] },
+      { label: 'Afternoon', note: 'Peak · +₹80', slots: [mkSlot('12:30', 'Free'), mkSlot('01:30', 'Free'), mkSlot('02:30', '', 'off'), mkSlot('03:00', '+₹80'), mkSlot('04:00', '+₹80'), mkSlot('04:30', 'Free')] },
+      { label: 'Evening', note: 'Last start 7:30 PM', slots: [mkSlot('05:30', 'Free'), mkSlot('06:00', '', 'off'), mkSlot('06:30', 'Free'), mkSlot('07:00', '+₹80'), mkSlot('07:30', 'Free'), mkSlot('08:00 PM', '', 'off')] },
+    ];
+    const dateLabel = ['Today', 'Fri 31 Jul', 'Sat 1 Aug', 'Sun 2 Aug', 'Mon 3 Aug', 'Tue 4 Aug'][s.dateIdx];
+    const slotSummary = s.slot ? dateLabel + ', ' + s.slot : 'No slot selected';
+
+    // ── pros ──
+    const prosRaw = [
+      { id: 'p1', initials: 'MK', name: 'Meera Kulkarni', rating: '4.91', exp: '6 yrs', jobs: '1,842', langs: 'Hindi, English, Marathi', dist: '3.2 km away', free: '4:00 PM', skill: 'Top rated', price: F(1499) },
+      { id: 'p2', initials: 'SB', name: 'Sunita Bisht', rating: '4.84', exp: '4 yrs', jobs: '1,106', langs: 'Hindi, English', dist: '5.6 km away', free: '4:30 PM', skill: 'Aroma expert', price: F(1499) },
+      { id: 'p3', initials: 'RD', name: 'Rekha Das', rating: '4.78', exp: '9 yrs', jobs: '2,410', langs: 'Hindi, Bengali', dist: '7.1 km away', free: '5:30 PM', skill: 'Senior', price: F(1649) },
+    ].map(p => ({ ...p, pick: () => this.setState({ proId: p.id }), bg: s.proId === p.id ? '#fff2ef' : 'transparent', mark: s.proId === p.id ? ACC : 'transparent' }));
+    const chosenPro = prosRaw.find(p => p.id === s.proId);
+    const proSummary = s.proMode === 'auto' ? 'Auto-assign' : chosenPro ? chosenPro.name : 'Pick a professional';
+
+    // ── bottom bar ──
+    const bars = {
+      category: { label: t.dur + ' min · ' + s.cart.length + ' services', value: F(t.total), cta: 'VIEW CART', go: () => this.go('cart') },
+      service: { label: 'Aroma Therapy 60 min', value: F(1499), cta: 'ADD TO CART', go: () => this.go('cart') },
+      cart: { label: 'Total payable', value: F(t.total), cta: 'PICK A SLOT', go: () => this.go('slots') },
+      slots: { label: s.slot ? 'Held · ' + this.mmss(s.hold) : 'Select a time', value: slotSummary, cta: 'CONTINUE', go: () => s.slot && this.go('pro') },
+      pro: { label: proSummary, value: F(t.total), cta: 'TO PAYMENT', go: () => this.go('pay') },
+      pay: { label: 'Pay securely', value: F(t.total), cta: s.payFailed ? 'RETRY' : 'PAY NOW', go: () => s.payFailed ? this.setState({ payFailed: false, screen: 'done' }) : this.setState({ payFailed: true }) },
+    };
+    const bar = isCustomer ? bars[s.screen] : null;
+
+    // ── tracking ──
+    const tSteps = ['Booking confirmed', 'Assignment pending', 'Professional assigned', 'En route to you', 'Arrived at your door', 'Service started', 'Service completed'];
+    const tTimes = ['3:12 PM', '3:12 PM', '3:14 PM · Meera Kulkarni', 'Now · ETA 4:02 PM', 'Expected 4:02 PM', 'After OTP 4821', 'Expected 5:30 PM'];
+    const trackSteps = tSteps.map((label, i) => ({
+      label, time: tTimes[i],
+      fill: i < s.trackStep ? INK : i === s.trackStep ? ACC : 'transparent',
+      ring: i <= s.trackStep ? (i === s.trackStep ? ACC : INK) : '#bab6b6',
+      line: i < s.trackStep ? INK : '#d7d3d3',
+      fg: i <= s.trackStep ? INK : '#9b9797',
+    }));
+
+    // ── pro job ──
+    const step = JOB_STEPS[s.jobStep];
+    const checklistTitle = step.key === 'running' ? 'Service checklist' : 'Completion checklist';
+    const checkItems = step.key === 'running'
+      ? ['Fresh linen laid, table levelled', 'Sealed oil pack opened in front of customer', 'Allergy + pressure preference confirmed', 'Room temperature and music set']
+      : ['Area cleaned, waste bagged out', 'Aftercare advice given', 'Add-ons confirmed with customer', 'Photos uploaded (optional)'];
+    const checklist = checkItems.map((label, i) => {
+      const key = step.key + i, on = !!s.checks[key];
+      return { label, toggle: () => this.setState({ checks: { ...s.checks, [key]: !on } }), ring: on ? ACC : '#bab6b6', fill: on ? ACC : 'transparent' };
+    });
+    const jobBars = JOB_STEPS.map((j, i) => ({
+      label: j.label, bg: i <= s.jobStep ? (i === s.jobStep ? ACC : INK) : '#d7d3d3',
+      fg: i <= s.jobStep ? INK : '#9b9797',
+    }));
+    const needsOtp = step.key === 'otp1' || step.key === 'otp2';
+
+    const verifyOtp = () => {
+      if (s.otp === '4821') this.setState({ jobStep: s.jobStep + 1, otp: '', otpOk: true, otpMsg: 'Verified. Timestamp logged against the booking.' });
+      else this.setState({ otpOk: false, otpMsg: s.otp.length < 4 ? 'Enter all 4 digits.' : 'Wrong code. 2 attempts left, then ops must override.' });
+    };
+
+    // ── admin ──
+    const adminNav = ['Overview', 'Live Operations', 'Bookings', 'Professionals', 'Customers', 'Services', 'Payments', 'Refunds', 'Settlements', 'Coupons', 'Support', 'Reports', 'Audit Logs', 'Settings']
+      .map(label => {
+        const key = label === 'Overview' ? 'overview' : label === 'Live Operations' ? 'live' : label === 'Bookings' ? 'booking' : null;
+        const on = key && s.adminScreen === key;
+        return { label, go: () => key && this.setState({ adminScreen: key }), mark: on ? ACC : 'transparent', bg: on ? '#eae9e9' : 'transparent', fg: on ? INK : '#605d5d', w: on ? '800' : '400' };
+      });
+
+    const kpis = [
+      ['Gross booking value', '₹4.62 Cr', '+18.4%', '#ae1800'], ['Platform revenue', '₹96.4 L', '+21.0%', '#ae1800'],
+      ['Bookings', '31,204', '+12.6%', '#ae1800'], ['Completed', '28,911', '92.7%', MUT],
+      ['Cancellation rate', '4.1%', '−0.6 pt', '#ae1800'], ['Assignment success', '96.2%', '−1.3 pt', INK],
+      ['Active pros', '2,140', '+96', '#ae1800'], ['Active customers', '84,320', '+4.2%', '#ae1800'],
+      ['Avg order value', '₹1,481', '+₹52', '#ae1800'], ['Avg rating', '4.83', '+0.02', MUT],
+      ['Refunds', '₹6.1 L', '1.3% of GBV', MUT], ['Open tickets', '148', '22 breaching SLA', '#ae1800'],
+    ].map(([label, value, delta, color]) => ({ label, value, delta, color }));
+
+    const payMix = [['UPI', '58%', ACC], ['Card', '21%', INK], ['Net banking', '13%', '#9b9797'], ['Cash after service', '8%', '#d7d3d3']]
+      .map(([label, v, c]) => ({ label, v, c }));
+    const catBars = [['Salon for Women', '₹184 L', '100%', ACC], ['Spa & Massage', '₹142 L', '77%', ACC], ['Salon for Men', '₹61 L', '33%', INK], ['Skin Care', '₹43 L', '23%', INK], ['Makeup', '₹28 L', '15%', '#9b9797'], ['Nail Care', '₹14 L', '8%', '#9b9797']]
+      .map(([label, v, w, c]) => ({ label, v, w, c }));
+    const funnel = [['Sessions', '412K', '100%'], ['Service viewed', '188K', '46%'], ['Added to cart', '96K', '23%'], ['Slot held', '54K', '13%'], ['Paid', '37K', '9%'], ['Completed', '34K', '8%']]
+      .map(([label, v, w]) => ({ label, v, w }));
+
+    const heatBands = ['8–11', '11–2', '2–5', '5–8'];
+    const heatVals = [
+      [1, 1, 2, 2, 3, 4, 3], [2, 2, 2, 3, 3, 4, 4], [2, 3, 3, 3, 4, 4, 3], [3, 3, 3, 4, 4, 4, 2],
+    ];
+    const heatColors = { 1: ['#ffe0d9', '#7c1405'], 2: ['#ff9783', '#4d170e'], 3: ['#ff563c', '#f3f2f2'], 4: ['#ae1800', '#f3f2f2'] };
+    const heat = [{ label: '', bg: 'transparent', fg: MUT }]
+      .concat(['M', 'T', 'W', 'T', 'F', 'S', 'S'].map(d => ({ label: d, bg: 'transparent', fg: MUT })));
+    heatVals.forEach((row, r) => {
+      heat.push({ label: heatBands[r], bg: 'transparent', fg: MUT });
+      row.forEach(v => heat.push({ label: '', bg: heatColors[v][0], fg: heatColors[v][1] }));
+    });
+
+    const liveStats = [
+      ['Unassigned', '7', true], ['En route', '112', false], ['In service', '286', false], ['Delayed', '9', true], ['Failed payments', '4', true],
+    ].map(([label, v, hot]) => ({ label, v, bg: hot ? INK : '#f3f2f2', lc: hot ? 'rgba(243,242,242,.65)' : MUT, vc: hot ? '#f3f2f2' : INK }));
+
+    const goDetail = () => this.setState({ adminScreen: 'booking' });
+    const liveCols = [
+      { title: 'Needs assignment', count: '7 open', items: [
+        ['GS-24802-GGN', 'ASSIGNMENT_FAILED', 'Aroma Therapy 60 min', 'Sector 60 · 4:30 PM · 3 rejects', ACC],
+        ['GS-24810-DEL', 'ASSIGNMENT_PENDING', 'Bridal Makeup Package', 'Vasant Kunj · 6:00 PM · 1 sent', ACC],
+        ['GS-24815-NOI', 'ASSIGNMENT_PENDING', 'Hair Spa + Cut', 'Sector 62 · 5:00 PM · 2 sent', ACC],
+        ['GS-24819-GGN', 'SLOT_HELD', 'Full Body Wax', 'DLF Ph 3 · 7:30 PM · hold 04:12', MUT],
+      ] },
+      { title: 'In flight', count: '398 live', items: [
+        ['GS-24817-GGN', 'EN_ROUTE', 'Aroma Therapy + Wax', 'Meera K. · ETA 4:02 PM', INK],
+        ['GS-24790-BLR', 'IN_PROGRESS', 'Deep Tissue 90 min', 'Kavya S. · 38 min elapsed', INK],
+        ['GS-24788-MUM', 'ARRIVED', 'Party Makeup', 'Farah Q. · waiting 6 min', ACC],
+        ['GS-24771-HYD', 'IN_PROGRESS', 'Detan + Facial', 'Anjali P. · 12 min elapsed', INK],
+      ] },
+      { title: 'Exceptions', count: '13 to clear', items: [
+        ['GS-24744-PUN', 'PAYMENT_FAILED', 'Keratin Treatment', 'U31 decline · slot expires 03:40', ACC],
+        ['GS-24702-GGN', 'CANCELLED_BY_PROFESSIONAL', 'Head Massage', 'Refund ₹899 pending · 2nd this week', ACC],
+        ['GS-24688-DEL', 'CUSTOMER_NO_SHOW', 'Manicure', 'Pro waited 20 min · fee applied', MUT],
+        ['GS-24651-BLR', 'DISPUTED', 'Facial — Vitamin C', 'Ticket #9042 · SLA 00:22', ACC],
+      ] },
+    ].map(c => ({ ...c, items: c.items.map(([id, state, svc, meta, sc]) => ({ id, state, svc, meta, sc, mark: sc === ACC ? ACC : '#d7d3d3', go: goDetail })) }));
+
+    const bookingRows = [
+      ['GS-24802-GGN', 'Ananya Rao', 'Unassigned', 'Aroma Therapy 60m', 'GGN-Z3', 'Today 4:30 PM', '₹1,899', 'Paid', 'tag-neutral', 'ASSIGNMENT_FAILED', ACC, true],
+      ['GS-24817-GGN', 'Ananya Rao', 'Meera Kulkarni', 'Aroma + Wax', 'GGN-Z3', 'Today 4:00 PM', '₹2,148', 'Paid', 'tag-neutral', 'PROFESSIONAL_EN_ROUTE', INK, false],
+      ['GS-24810-DEL', 'Ishita Sharma', 'Unassigned', 'Bridal Makeup', 'DEL-Z1', 'Today 6:00 PM', '₹8,400', 'Paid', 'tag-neutral', 'ASSIGNMENT_PENDING', ACC, false],
+      ['GS-24790-BLR', 'Nikhil Iyer', 'Kavya Suresh', 'Deep Tissue 90m', 'BLR-Z2', 'Today 3:00 PM', '₹2,299', 'Paid', 'tag-neutral', 'IN_PROGRESS', INK, false],
+      ['GS-24744-PUN', 'Aditi Kulkarni', 'Unassigned', 'Keratin Treatment', 'PUN-Z1', 'Today 5:00 PM', '₹4,999', 'Failed', 'tag-accent', 'PAYMENT_FAILED', ACC, false],
+      ['GS-24702-GGN', 'Rahul Verma', 'Deepak Yadav', 'Head Massage', 'GGN-Z1', 'Today 1:00 PM', '₹899', 'Refunding', 'tag-accent', 'CANCELLED_BY_PROFESSIONAL', ACC, false],
+      ['GS-24688-DEL', 'Sneha Gupta', 'Pooja Rani', 'Manicure', 'DEL-Z4', 'Today 11:30 AM', '₹749', 'Paid', 'tag-neutral', 'CUSTOMER_NO_SHOW', MUT, false],
+      ['GS-24651-BLR', 'Tanvi Menon', 'Anjali Pillai', 'Vitamin C Facial', 'BLR-Z1', 'Yesterday', '₹1,299', 'Paid', 'tag-neutral', 'DISPUTED', ACC, false],
+    ].map(([id, cust, pro, svc, zone, when, amt, pay, payTag, state, stateColor, active]) => ({
+      id, cust, pro, svc, zone, when, amt, pay, payTag, state, stateColor,
+      proColor: pro === 'Unassigned' ? ACC : INK, bg: active ? '#eae9e9' : 'transparent', go: goDetail,
+    }));
+
+    return {
+      isCustomer, isPro, isAdmin, mobile: isCustomer || isPro,
+      goCustomer: () => this.setState({ role: 'customer', screen: 'home' }),
+      goPro: () => this.setState({ role: 'professional', screen: 'prohome' }),
+      goAdmin: () => this.setState({ role: 'admin' }),
+      screenTabs: tabs,
+      frameLabel: isPro ? 'GlowServe Pro' : 'GlowServe',
+
+      scHome: s.screen === 'home' && isCustomer, scCategory: s.screen === 'category' && isCustomer,
+      scService: s.screen === 'service' && isCustomer, scCart: s.screen === 'cart' && isCustomer,
+      scSlots: s.screen === 'slots' && isCustomer, scPro: s.screen === 'pro' && isCustomer,
+      scPay: s.screen === 'pay' && isCustomer, scDone: s.screen === 'done' && isCustomer,
+      scTrack: s.screen === 'track' && isCustomer,
+      scProHome: s.screen === 'prohome' && isPro, scProReq: s.screen === 'proreq' && isPro, scProJob: s.screen === 'projob' && isPro,
+      scOverview: s.adminScreen === 'overview', scLive: s.adminScreen === 'live', scBooking: s.adminScreen === 'booking',
+
+      goHome: () => this.go('home'), goCategory: () => this.go('category'), goService: () => this.go('service'),
+      goCart: () => this.go('cart'), goTrack: () => this.go('track'), goProReq: () => this.go('proreq'),
+
+      categories: [
+        { code: 'SFW', name: 'Salon for Women', meta: 'From ₹399' }, { code: 'SPA', name: 'Spa & Massage', meta: 'From ₹1,099' },
+        { code: 'SFM', name: 'Salon for Men', meta: 'From ₹299' }, { code: 'SKN', name: 'Skin Care', meta: 'From ₹899' },
+        { code: 'MKP', name: 'Makeup', meta: 'From ₹1,999' }, { code: 'NAIL', name: 'Nail Care', meta: 'From ₹449' },
+      ],
+      howSteps: [
+        { n: '01', t: 'Confirm your address', d: 'We check that your PIN code has pros free in your slot.' },
+        { n: '02', t: 'Hold a slot', d: 'Your time is blocked for 10 minutes while you pay.' },
+        { n: '03', t: 'Meet a verified pro', d: 'ID-checked, background-verified, sealed kit.' },
+        { n: '04', t: 'Start with an OTP', d: 'Nothing begins or closes without your code.' },
+      ],
+      cities: ['Gurugram', 'Delhi', 'Noida', 'Bengaluru', 'Mumbai', 'Hyderabad', 'Pune'],
+      filters: [
+        { label: 'Sort · Popular', bg: INK, fg: '#f3f2f2' }, { label: 'Under ₹1,500', bg: 'transparent', fg: INK },
+        { label: '4.5★ +', bg: 'transparent', fg: INK }, { label: 'Under 60 min', bg: 'transparent', fg: INK },
+        { label: 'Offers', bg: 'transparent', fg: INK },
+      ],
+      services: [
+        { code: 'AROMA', badge: 'MOST BOOKED', rating: '4.87', reviews: '1,204 reviews', name: 'Aroma Therapy Massage — 60 min', blurb: 'Lavender + almond oil, full body, folding table brought along.', price: '₹1,499', mrp: '₹1,999', off: '25% OFF', dur: '60 min' },
+        { code: 'DEEP', badge: 'PRO CHOICE', rating: '4.79', reviews: '842 reviews', name: 'Deep Tissue Massage — 90 min', blurb: 'Firm pressure for knots and desk-work stiffness.', price: '₹2,299', mrp: '₹2,799', off: '18% OFF', dur: '90 min' },
+        { code: 'HEAD', badge: 'QUICK', rating: '4.72', reviews: '2,910 reviews', name: 'Head + Shoulder Massage — 30 min', blurb: 'Warm coconut oil, tension release, no full setup needed.', price: '₹699', mrp: '₹899', off: '22% OFF', dur: '30 min' },
+        { code: 'FOOT', badge: 'NEW', rating: '4.66', reviews: '318 reviews', name: 'Reflexology Foot Spa — 45 min', blurb: 'Salt soak, scrub and pressure-point work.', price: '₹999', mrp: '₹1,299', off: '23% OFF', dur: '45 min' },
+      ],
+      included: ['60 minutes of hands-on massage', 'Cold-pressed lavender + sweet almond oil', 'Folding table, fresh linen, disposable covers', 'Post-service cleanup and waste removal'],
+      addons: [
+        { name: 'Head massage extension', dur: '+15 min', price: '₹299' },
+        { name: 'Hot stone therapy', dur: '+20 min', price: '₹499' },
+        { name: 'Foot reflexology', dur: '+20 min', price: '₹399' },
+      ],
+
+      cart: s.cart.map(i => ({
+        ...i, durLabel: i.dur + ' min', priceLabel: F(i.price), lineLabel: F(i.price * i.qty),
+        inc: () => this.setState({ cart: s.cart.map(c => c.id === i.id ? { ...c, qty: c.qty + 1 } : c) }),
+        dec: () => this.setState({ cart: s.cart.map(c => c.id === i.id ? { ...c, qty: Math.max(1, c.qty - 1) } : c) }),
+      })),
+      addToCart: () => this.go('cart'),
+      durLabel: t.dur + ' min',
+      steps: [0, 1, 2, 3, 4, 5].map(i => ({ bg: i <= (['cart', 'pro', 'slots', 'pro', 'pay', 'done'].indexOf(s.screen)) ? ACC : '#d7d3d3' })),
+      coupon: s.coupon, setCoupon: e => this.setState({ coupon: e.target.value.toUpperCase(), applied: false }),
+      applyCoupon: () => this.setState({ applied: s.coupon.trim() === 'GLOW20' }),
+      couponMsg: s.applied ? 'GLOW20 applied — ' + F(t.coupon) + ' off, capped at ₹400.' : s.coupon.trim() === 'GLOW20' ? 'Valid on your first spa booking. Tap apply.' : 'Code not recognised for this cart.',
+      couponColor: s.applied ? '#ae1800' : MUT,
+      bill: [
+        { label: 'Services (' + s.cart.length + ')', value: F(t.sub), color: INK },
+        { label: 'Coupon GLOW20', value: t.coupon ? '−' + F(t.coupon) : '—', color: t.coupon ? '#ae1800' : MUT },
+        { label: 'GlowServe Plus discount', value: '−' + F(t.member), color: '#ae1800' },
+        { label: 'Platform fee', value: t.fee ? F(t.fee) : 'Waived (Plus)', color: MUT },
+        { label: 'GST 18%', value: F(t.tax), color: MUT },
+      ],
+      totalLabel: F(t.total),
+
+      dates, slotGroups, slotSummary,
+      holdActive: s.hold > 0, holdExpired: s.holdExpired, holdLabel: this.mmss(s.hold),
+      releaseHold: () => this.setState({ hold: 0, slot: null, holdExpired: true }),
+
+      isAuto: s.proMode === 'auto', isManual: s.proMode === 'manual', pros: prosRaw, proSummary,
+      setAuto: () => this.setState({ proMode: 'auto' }), setManual: () => this.setState({ proMode: 'manual' }),
+      autoBg: s.proMode === 'auto' ? ACC : 'transparent', autoBorder: s.proMode === 'auto' ? ACC : LINE, autoFg: s.proMode === 'auto' ? '#f3f2f2' : INK,
+      manualBg: s.proMode === 'manual' ? ACC : 'transparent', manualBorder: s.proMode === 'manual' ? ACC : LINE, manualFg: s.proMode === 'manual' ? '#f3f2f2' : INK,
+
+      methods: [
+        ['upi', 'UPI', 'GPay, PhonePe, Paytm · instant', 'FASTEST'],
+        ['card', 'Credit / debit card', 'Visa ••4471 saved · tokenised', ''],
+        ['nb', 'Net banking', '58 banks', ''],
+        ['wallet', 'GlowServe credits', 'Balance ₹240', ''],
+        ['cash', 'Cash after service', 'Not available on prepaid offers', 'DISABLED'],
+      ].map(([k, name, note, flag]) => ({
+        name, note, flag, pick: () => this.setState({ method: k }),
+        bg: s.method === k ? '#fff2ef' : 'transparent', border: s.method === k ? ACC : LINE,
+        dot: s.method === k ? ACC : '#bab6b6', fill: s.method === k ? ACC : 'transparent',
+      })),
+      payFailed: s.payFailed, retryPay: () => this.setState({ payFailed: false, screen: 'done' }),
+
+      confirmRows: [
+        { k: 'Services', v: 'Aroma Therapy Massage 60 min × 1, Full Arms + Underarms Wax × 1' },
+        { k: 'When', v: slotSummary === 'No slot selected' ? 'Today, 4:00 PM — 90 min' : slotSummary + ' — 90 min' },
+        { k: 'Where', v: 'B-1204, Ireo Skyon, Sector 60, Gurugram 122102' },
+        { k: 'Professional', v: proSummary },
+        { k: 'Cancellation', v: 'Free until 2:00 PM. 50% fee after that.' },
+      ],
+      trackSteps, advanceTrack: () => this.setState({ trackStep: Math.min(6, s.trackStep + 1) }),
+
+      onlineLabel: s.online ? 'ONLINE' : 'OFFLINE', onlineBg: s.online ? ACC : 'transparent',
+      onlineBorder: s.online ? ACC : LINE, onlineFg: s.online ? '#f3f2f2' : INK,
+      toggleOnline: () => this.setState({ online: !s.online }),
+      proKpis: [
+        { label: "Today's earnings", value: '₹2,340', note: '3 of 5 jobs done' },
+        { label: 'This week', value: '₹14,820', note: 'Settles Monday' },
+        { label: 'Rating (30d)', value: '4.91', note: '48 ratings' },
+        { label: 'Acceptance', value: '94%', note: 'Keep above 85%' },
+      ],
+      reqLabel: this.mmss(s.req), reqPct: Math.round((s.req / 60) * 100) + '%',
+      proJobs: [
+        { time: '11:00', svc: 'Head + Shoulder 30 min', where: 'Sector 43 · Nidhi B.', status: 'DONE', color: MUT },
+        { time: '1:30', svc: 'Deep Tissue 90 min', where: 'Sector 56 · Rhea M.', status: 'DONE', color: MUT },
+        { time: '4:00', svc: 'Aroma Therapy + Wax', where: 'Sector 60 · Ananya R.', status: 'NEXT', color: ACC },
+        { time: '7:00', svc: 'Reflexology 45 min', where: 'DLF Ph 4 · Shalini K.', status: 'CONFIRMED', color: INK },
+      ],
+      reqRows: [
+        { k: 'Services', v: 'Aroma Therapy 60 min + Full Arms Wax', w: '800' },
+        { k: 'When', v: 'Today, 4:00 PM · 90 min', w: '800' },
+        { k: 'Area', v: 'Sector 60, Golf Course Ext. · 3.2 km · 14 min ride', w: '400' },
+        { k: 'You earn', v: '₹1,120 (₹960 base + ₹160 peak)', w: '800' },
+        { k: 'Payment', v: 'Prepaid — nothing to collect', w: '400' },
+        { k: 'Customer', v: 'Ananya R. · 12 bookings · rates pros 4.9 avg', w: '400' },
+      ],
+      acceptReq: () => this.setState({ screen: 'projob', jobStep: 0, rejecting: false }),
+      rejectReq: () => this.setState({ rejecting: true }),
+      rejecting: s.rejecting,
+      rejectReasons: ['Too far from my current job', 'I don\'t have the products for this', 'Slot clashes with a personal commitment', 'Feeling unwell', 'Other — tell us more'],
+
+      jobBars, jobTitle: step.title, jobBlurb: step.blurb, jobCta: step.cta,
+      jobHasPrimary: !!step.cta, jobNeedsOtp: needsOtp,
+      jobHasChecklist: step.key === 'running' || step.key === 'otp2',
+      jobRunning: step.key === 'running', jobDone: step.key === 'done',
+      jobTimer: this.mmss(s.jobSecs), checklist, checklistTitle,
+      otp: s.otp, setOtp: e => this.setState({ otp: e.target.value.replace(/\D/g, '').slice(0, 4), otpMsg: '' }),
+      otpLabel: step.key === 'otp2' ? 'Completion OTP from the customer' : 'Start OTP from the customer',
+      otpMsg: s.otpMsg, otpColor: s.otpOk ? '#ae1800' : s.otpMsg.startsWith('Wrong') || s.otpMsg.startsWith('Enter') ? ACC : MUT,
+      verifyOtp,
+      jobNext: () => this.setState({ jobStep: Math.min(JOB_STEPS.length - 1, s.jobStep + 1), otpMsg: 'Ask the customer for the code on their tracking screen.', otpOk: false }),
+      jobReset: () => this.setState({ jobStep: 0, otp: '', checks: {}, jobSecs: 0, otpOk: false, otpMsg: 'Ask the customer for the code on their tracking screen.' }),
+
+      adminNav, kpis, payMix, catBars, funnel, heat, liveStats, liveCols, bookingRows,
+      ranges: [['7d', '7 D'], ['30d', '30 D'], ['qtr', 'QTR'], ['yr', 'YTD']].map(([k, label]) => ({
+        label, pick: () => this.setState({ range: k }), ...sel(s.range === k, INK),
+      })),
+      detailRows: [
+        { k: 'Customer', v: 'Ananya Rao · +91 98••• ••210 · 12 bookings' },
+        { k: 'Address', v: 'B-1204 Ireo Skyon, Sector 60, GGN 122102' },
+        { k: 'Service', v: 'Aroma Therapy 60 min · needs SPA-L2 skill' },
+        { k: 'Amount', v: '₹1,899 paid via UPI · txn pay_Q7f2Xk' },
+        { k: 'Zone', v: 'GGN-Z3 · 9 eligible pros · 6 km radius' },
+        { k: 'Escalation', v: 'Auto-escalated to ops after 3 rejections' },
+      ],
+      attempts: [
+        { n: '1', pro: 'Meera Kulkarni · score 0.94', result: 'REJECTED', color: ACC, t: '3:04 PM' },
+        { n: '2', pro: 'Sunita Bisht · score 0.89', result: 'TIMED OUT', color: ACC, t: '3:07 PM' },
+        { n: '3', pro: 'Rekha Das · score 0.81', result: 'REJECTED', color: ACC, t: '3:11 PM' },
+        { n: '4', pro: 'No eligible pro left in radius', result: 'FAILED', color: ACC, t: '3:12 PM' },
+      ],
+      history: [
+        { t: '3:02 PM', state: 'SLOT_HELD', by: 'customer', color: MUT },
+        { t: '3:03 PM', state: 'PAYMENT_PENDING', by: 'system', color: MUT },
+        { t: '3:03 PM', state: 'CONFIRMED', by: 'webhook', color: INK },
+        { t: '3:04 PM', state: 'ASSIGNMENT_PENDING', by: 'engine', color: INK },
+        { t: '3:12 PM', state: 'ASSIGNMENT_FAILED', by: 'engine', color: ACC },
+      ],
+
+      hasBar: !!bar, barLabel: bar ? bar.label : '', barValue: bar ? bar.value : '', barCta: bar ? bar.cta : '', barGo: bar ? bar.go : (() => {}),
+    };
+  }
+}
+
+</script>
+</body>
+
+</html>

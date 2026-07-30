@@ -1,0 +1,2371 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aeria Stack — 8-Week Roadmap for Raj &amp; Sakshi</title>
+    <meta
+      name="description"
+      content="A full-time 8-week roadmap taking two engineers from zero backend to a working mini-version of the Aeria architecture — React 19, NestJS, PostgreSQL, Hasura, auth end to end."
+    />
+    <meta name="theme-color" content="#1e6f5c" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Aeria Stack — 8-Week Roadmap" />
+    <meta
+      property="og:description"
+      content="Two people, 320 hours each, from zero backend to a working mini-version of the Aeria architecture."
+    />
+    <meta name="twitter:card" content="summary" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231e6f5c'/%3E%3Cpath d='M16 6a10 10 0 1 1-7.07 2.93' fill='none' stroke='%23fff' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <style>
+      :root {
+        --surface: #fbfaf8;
+        --card: #ffffff;
+        --ink: #1c1b19;
+        --ink-2: #4a4744;
+        --ink-3: #79746e;
+        --line: #e6e2dc;
+        --line-2: #d6d1c9;
+        --accent: #1e6f5c;
+        --accent-soft: #e6f2ee;
+        --raj: #2d5f9e;
+        --raj-soft: #e7eefa;
+        --sak: #8a4a86;
+        --sak-soft: #f6eaf5;
+        --warn: #8a5a00;
+        --warn-soft: #fdf3e0;
+        --stop: #8f3a2f;
+        --stop-soft: #fbeae7;
+        --code-bg: #f4f2ee;
+        --radius: 14px;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --surface: #16161a;
+          --card: #1e1e23;
+          --ink: #f0eee9;
+          --ink-2: #c3bfb8;
+          --ink-3: #8e8880;
+          --line: #2e2e35;
+          --line-2: #3b3b44;
+          --accent: #5fc9a8;
+          --accent-soft: #17332c;
+          --raj: #8fb4e8;
+          --raj-soft: #182338;
+          --sak: #d69ad0;
+          --sak-soft: #2e1c2c;
+          --warn: #e0a94a;
+          --warn-soft: #33270f;
+          --stop: #e58b7b;
+          --stop-soft: #361a15;
+          --code-bg: #26262c;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--surface);
+        color: var(--ink);
+        font:
+          16px/1.6 ui-sans-serif,
+          -apple-system,
+          "Segoe UI",
+          Inter,
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 22px 90px;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid color-mix(in oklab, var(--accent) 32%, transparent);
+      }
+      a:hover {
+        border-bottom-color: var(--accent);
+      }
+
+      header {
+        padding: 34px 0 22px;
+      }
+      .backlink {
+        display: inline-block;
+        font-size: 13px;
+        color: var(--ink-3);
+        border-bottom: 0;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+      .backlink:hover {
+        color: var(--accent);
+        border-bottom: 0;
+      }
+      .kicker {
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+        font-weight: 650;
+      }
+      h1 {
+        font-size: clamp(28px, 4.6vw, 40px);
+        line-height: 1.14;
+        margin: 12px 0 10px;
+        letter-spacing: -0.022em;
+      }
+      .sub {
+        color: var(--ink-2);
+        font-size: 17px;
+        max-width: 66ch;
+        margin: 0;
+      }
+      .facts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 22px;
+      }
+      .fact {
+        font-size: 13px;
+        color: var(--ink-2);
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 6px 13px;
+      }
+      .fact b {
+        color: var(--ink);
+        font-weight: 650;
+      }
+
+      .bar-dock {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: var(--surface);
+        padding: 12px 0 14px;
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 28px;
+      }
+      .bar-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 8px;
+      }
+      .bar-label {
+        font-size: 13px;
+        color: var(--ink-3);
+        font-weight: 600;
+      }
+      .bar-val {
+        font-size: 13px;
+        color: var(--ink-2);
+        font-variant-numeric: tabular-nums;
+      }
+      .bar-right {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+      }
+      .bar-reset {
+        font: inherit;
+        font-size: 12px;
+        color: var(--ink-3);
+        background: none;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        border-bottom: 1px solid transparent;
+      }
+      .bar-reset:hover {
+        color: var(--stop);
+        border-bottom-color: currentColor;
+      }
+      .bar-reset:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+        border-radius: 2px;
+      }
+      .track {
+        height: 8px;
+        background: var(--line);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .fill {
+        height: 100%;
+        width: 0;
+        background: var(--accent);
+        transition: width 0.28s ease;
+      }
+      .bar-note {
+        display: block;
+        font-size: 12px;
+        color: var(--warn);
+        margin: 7px 0 0;
+      }
+      .bar-note:empty {
+        display: none;
+      }
+      /* Suppress the fill animation while restoring saved progress, so the
+     bar doesn't sweep up from 0% every time the page loads. */
+      body.hydrating .fill {
+        transition: none;
+      }
+
+      .box {
+        border-radius: var(--radius);
+        padding: 17px 19px;
+        margin: 0 0 18px;
+        border: 1px solid var(--line);
+        background: var(--card);
+      }
+      .box p {
+        margin: 0 0 10px;
+        font-size: 15px;
+        color: var(--ink-2);
+      }
+      .box p:last-child {
+        margin-bottom: 0;
+      }
+      .box b {
+        color: var(--ink);
+      }
+      .box.warn {
+        background: var(--warn-soft);
+        border-color: color-mix(in oklab, var(--warn) 30%, transparent);
+      }
+      .box.stop {
+        background: var(--stop-soft);
+        border-color: color-mix(in oklab, var(--stop) 30%, transparent);
+      }
+      .box.raj {
+        background: var(--raj-soft);
+        border-color: color-mix(in oklab, var(--raj) 30%, transparent);
+      }
+      .box.sak {
+        background: var(--sak-soft);
+        border-color: color-mix(in oklab, var(--sak) 30%, transparent);
+      }
+      .box h4 {
+        margin: 0 0 8px;
+        font-size: 16px;
+      }
+
+      h2.sec {
+        font-size: 23px;
+        margin: 46px 0 8px;
+        letter-spacing: -0.015em;
+      }
+      h2.sec + .lead {
+        color: var(--ink-2);
+        font-size: 15.5px;
+        margin: 0 0 18px;
+        max-width: 68ch;
+      }
+
+      .wk {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 23px 23px 19px;
+        margin-bottom: 17px;
+      }
+      .whead {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .wnum {
+        flex: none;
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 12px;
+        display: grid;
+        place-items: center;
+        line-height: 1.1;
+        text-align: center;
+      }
+      .wtitle {
+        margin: 0;
+        font-size: 19.5px;
+        letter-spacing: -0.012em;
+        line-height: 1.3;
+      }
+      .wmeta {
+        font-size: 12.5px;
+        color: var(--ink-3);
+        font-weight: 600;
+        margin-top: 4px;
+      }
+      .wgoal {
+        color: var(--ink-2);
+        font-size: 15px;
+        margin: 11px 0 15px;
+        padding-left: 52px;
+      }
+      @media (max-width: 620px) {
+        .wgoal {
+          padding-left: 0;
+        }
+      }
+
+      ul.checks {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      ul.checks li {
+        display: flex;
+        gap: 11px;
+        align-items: flex-start;
+        padding: 8px 0;
+        border-top: 1px solid var(--line);
+      }
+      ul.checks li:first-child {
+        border-top: 0;
+      }
+      ul.checks input {
+        appearance: none;
+        flex: none;
+        width: 19px;
+        height: 19px;
+        margin-top: 3px;
+        border: 1.5px solid var(--line-2);
+        border-radius: 5px;
+        background: transparent;
+        cursor: pointer;
+        transition:
+          background 0.12s,
+          border-color 0.12s;
+      }
+      ul.checks input:checked {
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+      ul.checks input:checked::after {
+        content: "";
+        display: block;
+        width: 5px;
+        height: 9px;
+        margin: 1.5px auto 0;
+        border: solid var(--card);
+        border-width: 0 2px 2px 0;
+        transform: rotate(43deg);
+      }
+      ul.checks input:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+      ul.checks label {
+        cursor: pointer;
+        font-size: 15px;
+        color: var(--ink);
+      }
+      ul.checks li.done label {
+        color: var(--ink-3);
+        text-decoration: line-through;
+        text-decoration-thickness: 1px;
+      }
+      .why {
+        display: inline-block;
+        width: 100%;
+        font-size: 13.5px;
+        color: var(--ink-3);
+        margin-top: 3px;
+        text-decoration: none;
+      }
+      .why a {
+        font-size: 13.5px;
+      }
+
+      .tag {
+        display: inline-block;
+        font-size: 10.5px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 2px 7px;
+        border-radius: 5px;
+        margin-right: 7px;
+        vertical-align: 1.5px;
+        text-decoration: none;
+      }
+      .t-both {
+        background: var(--accent-soft);
+        color: var(--accent);
+      }
+      .t-raj {
+        background: var(--raj-soft);
+        color: var(--raj);
+      }
+      .t-sak {
+        background: var(--sak-soft);
+        color: var(--sak);
+      }
+
+      .deliver {
+        margin-top: 15px;
+        padding: 12px 14px;
+        background: var(--accent-soft);
+        border-radius: 10px;
+        font-size: 14.5px;
+        color: var(--ink-2);
+      }
+      .deliver b {
+        color: var(--ink);
+      }
+      .docs {
+        margin-top: 13px;
+        font-size: 14px;
+        color: var(--ink-3);
+        line-height: 1.95;
+      }
+      .docs b {
+        color: var(--ink-2);
+        font-weight: 650;
+      }
+
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 13.5px;
+        background: var(--code-bg);
+        padding: 2px 6px;
+        border-radius: 5px;
+      }
+      pre {
+        background: var(--code-bg);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 14px 16px;
+        overflow-x: auto;
+        font-size: 13px;
+        line-height: 1.7;
+        margin: 14px 0;
+      }
+      pre code {
+        background: none;
+        padding: 0;
+        font-size: 13px;
+      }
+
+      .tbl-wrap {
+        overflow-x: auto;
+        margin: 16px 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14.5px;
+        min-width: 540px;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+      }
+      th {
+        font-size: 11.5px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--ink-3);
+        font-weight: 650;
+      }
+      td code {
+        font-size: 12.5px;
+      }
+      .ok {
+        color: var(--accent);
+        font-weight: 650;
+      }
+      .old {
+        color: var(--warn);
+        font-weight: 650;
+      }
+      .eol {
+        color: var(--stop);
+        font-weight: 650;
+      }
+
+      .traps {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 4px 22px;
+      }
+      .trap {
+        padding: 15px 0;
+        border-top: 1px solid var(--line);
+      }
+      .trap:first-child {
+        border-top: 0;
+      }
+      .trap h4 {
+        margin: 0 0 4px;
+        font-size: 15.5px;
+      }
+      .trap p {
+        margin: 0;
+        font-size: 14.5px;
+        color: var(--ink-2);
+      }
+
+      footer {
+        margin-top: 52px;
+        padding-top: 22px;
+        border-top: 1px solid var(--line);
+        font-size: 13.5px;
+        color: var(--ink-3);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <a class="backlink" href="index.html">&larr; Roadmaps</a>
+        <div class="kicker">Aeria Platform · Paired Learning Plan</div>
+        <h1>8 weeks, two people, one production stack</h1>
+        <p class="sub">
+          A full-time roadmap for <b>Raj</b> (strong JS, good React, zero backend) and
+          <b>Sakshi</b> (strong C++, new to JS, zero backend), working the same track in sync at 40
+          hrs/week each, ending in a faithful mini-version of the Aeria architecture.
+        </p>
+        <div class="facts">
+          <span class="fact"><b>8 weeks</b> · 320 hrs each</span>
+          <span class="fact"><b>3 wks</b> frontend</span>
+          <span class="fact"><b>4 wks</b> backend</span>
+          <span class="fact"><b>1 wk</b> integrate &amp; ship</span>
+          <span class="fact">Capstone: <b>3 services + 2 frontends</b></span>
+        </div>
+      </header>
+
+      <div class="bar-dock">
+        <div class="bar-top">
+          <span class="bar-label">Progress</span>
+          <span class="bar-right">
+            <span class="bar-val" id="pv">0 of 0 · 0%</span>
+            <button type="button" class="bar-reset" id="preset" hidden>Reset</button>
+          </span>
+        </div>
+        <div class="track"><div class="fill" id="pf"></div></div>
+        <output class="bar-note" id="pnote"></output>
+      </div>
+
+      <!-- ===== READ FIRST ===== -->
+      <h2 class="sec">Read this first</h2>
+
+      <div class="box stop">
+        <p>
+          <b>The backend is where you're actually equal, and it's most of the work.</b> Raj brings a
+          real head start on the frontend and Sakshi brings a real head start on structured, typed,
+          object-oriented design — but NestJS, Hasura, PostgreSQL, GraphQL codegen and the RS256
+          auth chain are zero for both of you. That's roughly 65% of the difficulty of this
+          platform, and it's why "same track, in sync" is the right call: you're only asymmetric for
+          about a week.
+        </p>
+      </div>
+
+      <div class="box warn">
+        <p>
+          <b>The stack doc is a snapshot, and several pins are behind the support line.</b> This
+          matters because you'll hit it on day one when you <code>npm install</code> and get
+          something newer than the doc says. Learn the <em>current</em> version, then learn what the
+          pinned one does differently — that delta is exactly what a new team member is expected to
+          know.
+        </p>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Doc pin</th>
+                <th>Current (Jul 2026)</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Next.js</td>
+                <td>14.2 / 15.3 / 15.4</td>
+                <td>16.2.x · maint. 15.5.x</td>
+                <td class="eol">14.x EOL; 15.3/15.4 missing July 2026 CVE patches</td>
+              </tr>
+              <tr>
+                <td>Hasura engine</td>
+                <td>v2.37.0 (Jan 2024)</td>
+                <td>v2.49.1 · LTS v2.45.x</td>
+                <td class="eol">Outside every support window</td>
+              </tr>
+              <tr>
+                <td>NestJS</td>
+                <td>10.x + Express 4</td>
+                <td>11.1.x + Express 5</td>
+                <td class="old">10.x tagged <code>legacy</code>, no releases since Jan 2026</td>
+              </tr>
+              <tr>
+                <td>ESLint</td>
+                <td>8 and 9</td>
+                <td>10.8.x</td>
+                <td class="eol">8 EOL 2024; 9 EOL 6 Aug 2026</td>
+              </tr>
+              <tr>
+                <td>React</td>
+                <td>18.3 and 19</td>
+                <td>19.2.x</td>
+                <td class="old">18.3.1 is the end of the 18 line</td>
+              </tr>
+              <tr>
+                <td>Tailwind</td>
+                <td>3.4 and 4</td>
+                <td>4.3.x</td>
+                <td class="old">3.4 frozen — security patches only</td>
+              </tr>
+              <tr>
+                <td>Zod</td>
+                <td>3.24</td>
+                <td>4.4.x</td>
+                <td class="old">
+                  3.24 is <em>below</em> <code>@hookform/resolvers</code>' 3.25 floor
+                </td>
+              </tr>
+              <tr>
+                <td>graphql</td>
+                <td>16.9</td>
+                <td>16.14.2 (stay on 16!)</td>
+                <td class="ok">Correct — codegen + graphql-request cap at 16</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          <b>Rule for the whole roadmap:</b> build your own projects on current versions, and keep a
+          running <code>DELTAS.md</code> noting what the Aeria pin does differently. By week 8 that
+          file is your onboarding cheat sheet and, frankly, your best interview material.
+        </p>
+      </div>
+
+      <!-- ===== THE TWO OF YOU ===== -->
+      <h2 class="sec">What each of you brings</h2>
+      <p class="lead">
+        You are not the same learner, and pretending otherwise wastes both your advantages. Week 1
+        is deliberately asymmetric; from week 2 you converge.
+      </p>
+
+      <div class="box raj">
+        <h4>Raj — strong JS, good React, zero backend</h4>
+        <p>
+          <b>Transfers directly:</b> components, hooks, state, JSX, the npm ecosystem, DevTools
+          debugging. Most of the Aeria frontend is libraries you haven't used yet, not concepts you
+          don't have — TanStack Query, Tailwind, Formik/RHF, App Router. You'll absorb those in
+          days, not weeks.
+        </p>
+        <p>
+          <b>Your actual gaps:</b> TypeScript's type system as a design tool (not just annotations),
+          server-side thinking, SQL, and the whole "one request touches five services" mental model.
+          Also: React Server Components are genuinely a different model from the React you know —
+          resist assuming it's just React with extra steps.
+        </p>
+        <p>
+          <b>Your job in the pair:</b> teach Sakshi JavaScript and React. Teaching is not charity
+          here — explaining closures and the event loop out loud is what will finally make your own
+          understanding airtight, and you'll discover gaps you didn't know you had.
+        </p>
+      </div>
+
+      <div class="box sak">
+        <h4>Sakshi — strong C++, new to JS, zero backend</h4>
+        <p>
+          <b>Transfers directly, and more than you'd expect:</b> static types, generics, interfaces,
+          classes, inheritance, composition, references vs values, and algorithmic thinking.
+          TypeScript will feel like coming home.
+          <b>NestJS will feel natural to you before it does to Raj</b> — modules, dependency
+          injection, decorators and constructor injection are Spring/OOP patterns, not JavaScript
+          patterns. Expect to lead the backend weeks.
+        </p>
+        <p>
+          <b>Your actual gaps:</b> JavaScript's dynamic, single-threaded, event-loop-driven runtime.
+          The things with no C++ analogue are where you'll lose time — closures, prototypes,
+          <code>this</code> binding, truthiness coercion, and above all the async model. Budget week
+          1 heavily for these.
+        </p>
+        <p>
+          <b>Your job in the pair:</b> hold the line on type rigor and design. Raj's instinct will
+          be to ship fast and loose; yours should be to ask "what's the interface?" That tension is
+          productive — it's why pairing beats two people working alone.
+        </p>
+      </div>
+
+      <h2 class="sec">C++ → TypeScript, for Sakshi</h2>
+      <p class="lead">
+        The fastest path in is to map what you know rather than start from zero. What transfers is
+        in the top half; the bottom half is where your intuitions will actively mislead you.
+      </p>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>C++ concept</th>
+              <th>TypeScript equivalent</th>
+              <th>Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>template&lt;typename T&gt;</code></td>
+              <td><code>function f&lt;T&gt;(x: T)</code></td>
+              <td class="ok">Nearly 1:1. Generics are structural, not instantiated per-type.</td>
+            </tr>
+            <tr>
+              <td>Abstract base class / pure virtual</td>
+              <td><code>interface</code> / <code>abstract class</code></td>
+              <td class="ok">Interfaces are compile-time only — they vanish at runtime.</td>
+            </tr>
+            <tr>
+              <td><code>struct</code> of fields</td>
+              <td><code>type</code> / <code>interface</code></td>
+              <td class="ok">
+                TS typing is <b>structural</b>, not nominal: same shape = same type, no inheritance
+                needed.
+              </td>
+            </tr>
+            <tr>
+              <td><code>std::optional&lt;T&gt;</code></td>
+              <td><code>T | undefined</code>, <code>T?</code></td>
+              <td class="ok">
+                Union types are more general than optional. <code>strictNullChecks</code> is your
+                <code>-Wall</code>.
+              </td>
+            </tr>
+            <tr>
+              <td><code>enum class</code></td>
+              <td><code>union of literals</code> (preferred) or <code>enum</code></td>
+              <td class="ok">
+                Prefer <code>'a' | 'b'</code> over TS <code>enum</code> — the ecosystem does.
+              </td>
+            </tr>
+            <tr>
+              <td><code>const</code> correctness</td>
+              <td><code>readonly</code>, <code>as const</code></td>
+              <td class="ok">Weaker than C++ — shallow, and erased at runtime.</td>
+            </tr>
+            <tr>
+              <td><code>std::vector</code>, <code>std::map</code></td>
+              <td><code>T[]</code>, <code>Map</code>, plain objects</td>
+              <td class="ok">
+                Plain objects are used as maps constantly. Get comfortable with that.
+              </td>
+            </tr>
+            <tr>
+              <td>Constructor injection / DI frameworks</td>
+              <td>NestJS providers + <code>@Injectable()</code></td>
+              <td class="ok">
+                <b>This is your edge.</b> Nest's DI is a familiar pattern wearing decorators.
+              </td>
+            </tr>
+            <tr>
+              <td>RAII, destructors, manual memory</td>
+              <td>— <em>(no equivalent)</em></td>
+              <td class="eol">
+                GC handles it. Your ownership instincts have nowhere to go — let them go.
+              </td>
+            </tr>
+            <tr>
+              <td>Threads, mutexes, <code>std::async</code></td>
+              <td><b>Single-threaded event loop</b></td>
+              <td class="eol">
+                The biggest shift. No data races, but also no blocking — ever.
+                <code>await</code> yields, it does not block a thread.
+              </td>
+            </tr>
+            <tr>
+              <td>Function pointers / lambdas w/ capture list</td>
+              <td><b>Closures</b> (implicit capture by reference)</td>
+              <td class="eol">
+                JS captures the <em>variable</em>, not the value, and captures everything
+                automatically. Source of real bugs.
+              </td>
+            </tr>
+            <tr>
+              <td>Static typing enforced at runtime</td>
+              <td><b>Types are erased</b></td>
+              <td class="eol">
+                TS gives you zero runtime guarantees. This is why Zod / class-validator exist —
+                they're the runtime half of the type system.
+              </td>
+            </tr>
+            <tr>
+              <td><code>this</code> = the object</td>
+              <td><code>this</code> = <em>call-site dependent</em></td>
+              <td class="eol">
+                Arrow functions capture lexical <code>this</code>; regular functions don't. Just use
+                arrows.
+              </td>
+            </tr>
+            <tr>
+              <td>Strong typing at comparisons</td>
+              <td>Coercion: <code>==</code> vs <code>===</code></td>
+              <td class="eol">
+                Always <code>===</code>. Learn the falsy set:
+                <code>0 "" null undefined NaN false</code>.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box">
+        <p>
+          <b>Sakshi's week-1 reading order:</b>
+          <a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-oop.html"
+            >TS for OOP programmers</a
+          >
+          (written for exactly your background) →
+          <a href="https://javascript.info/">javascript.info</a> parts 1–2, skipping syntax you
+          already know from C++ → <a href="https://javascript.info/event-loop">the event loop</a> →
+          <a href="https://javascript.info/closure">closures</a>. Do not skip the last two.
+        </p>
+      </div>
+
+      <!-- ===== PAIRING ===== -->
+      <h2 class="sec">How to actually pair</h2>
+      <p class="lead">
+        "In sync" fails by default unless you give it structure. This is the rhythm that works at 40
+        hrs/week; adapt the times, keep the shape.
+      </p>
+      <div class="box">
+        <p>
+          <b>Daily (8 hrs):</b> 30 min stand-up — what each of you is doing, what's blocking. Then a
+          <b>3-hour pair block</b> on the hardest thing of the day, rotating driver/navigator every
+          25 minutes. Then ~4 hrs solo on your own track. End with a <b>20-minute teach-back</b>:
+          each of you explains one thing you learned, out loud, to the other. The teach-back is not
+          optional — it is the single highest-signal detector of "I thought I understood this."
+        </p>
+        <p>
+          <b>Weekly:</b> Friday afternoon demo of whatever runs, then a 30-minute retro (what was
+          slower than expected, what to change), then update <code>DECISIONS.md</code> and
+          <code>DELTAS.md</code> together.
+        </p>
+        <p>
+          <b>On the capstone:</b> each of you <em>owns</em> services but <b>reviews</b> the other's
+          — no code merges without the other reading it.
+          <b>Swap ownership at the start of week 7.</b> Forcing yourself into unfamiliar code is the
+          only reliable way to guarantee neither of you ends up with a blind spot.
+        </p>
+        <p>
+          <b>The one rule:</b> if you're stuck for more than 40 minutes alone, you must pull the
+          other person in. Silent struggling is where paired learning goes to die.
+        </p>
+      </div>
+
+      <!-- ===== WEEKS ===== -->
+      <h2 class="sec">The 8 weeks</h2>
+      <p class="lead">
+        Tags: <span class="tag t-both">both</span> shared work ·
+        <span class="tag t-raj">raj</span> Raj's solo track ·
+        <span class="tag t-sak">sakshi</span> Sakshi's solo track.
+      </p>
+
+      <!-- W1 -->
+      <section class="wk">
+        <div class="whead">
+          <div class="wnum">WK<br />1</div>
+          <div>
+            <h3 class="wtitle">Language level-set &amp; the tooling floor</h3>
+            <div class="wmeta">
+              The only asymmetric week · TypeScript · Docker · reading the architecture
+            </div>
+          </div>
+        </div>
+        <p class="wgoal">
+          Get to a shared language baseline. Sakshi sprints on JavaScript; Raj sprints on
+          TypeScript. Both of you end the week able to read the Aeria stack doc without anything
+          being a black box.
+        </p>
+        <ul class="checks">
+          <li>
+            <input type="checkbox" id="w1a" /><label for="w1a"
+              ><span class="tag t-sak">sakshi</span>JS runtime model: event loop, call stack,
+              microtasks, <code>async</code>/<code>await</code
+              ><span class="why"
+                >Your highest-value 8 hours of the entire roadmap. Nothing in C++ prepares you for
+                this.
+                <a href="https://javascript.info/event-loop">javascript.info — event loop</a></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w1b" /><label for="w1b"
+              ><span class="tag t-sak">sakshi</span>Closures, <code>this</code> binding, prototypes,
+              truthiness &amp; <code>===</code></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w1c" /><label for="w1c"
+              ><span class="tag t-sak">sakshi</span>Array/object idioms: <code>.map()</code>
+              <code>.filter()</code> <code>.reduce()</code>, destructuring, spread, optional
+              chaining<span class="why"
+                >These are to JS what STL algorithms are to C++ — you'll write them hundreds of
+                times a day.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w1d" /><label for="w1d"
+              ><span class="tag t-raj">raj</span>TypeScript as a design tool: generics, unions,
+              discriminated unions, narrowing<span class="why"
+                >Not "JS with annotations." Model your domain in types and let the compiler check
+                your logic.
+                <a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html"
+                  >TS Handbook</a
+                ></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w1e" /><label for="w1e"
+              ><span class="tag t-raj">raj</span>Utility types (<code>Partial</code>,
+              <code>Pick</code>, <code>Omit</code>, <code>Record</code>, <code>ReturnType</code>)
+              and <code>tsconfig</code> strict flags</label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w1f" /><label for="w1f"
+              ><span class="tag t-both">both</span>Decorators + <code>reflect-metadata</code> — how
+              Nest and class-validator work<span class="why"
+                >Do this together in week 1. It demystifies 80% of "how does NestJS know that?"
+                before you ever open Nest.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w1g" /><label for="w1g"
+              ><span class="tag t-both">both</span>Docker &amp; docker-compose: images, layers,
+              volumes, networks, <code>compose.yaml</code
+              ><span class="why"
+                >Non-negotiable for week 5 onward — every Aeria service is a container.
+                <a href="https://docs.docker.com/get-started/">Docker get started</a></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w1h" /><label for="w1h"
+              ><span class="tag t-both">both</span>Git workflow: branches, PRs, review, conventional
+              commits<span class="why"
+                >You're two people now. Set the protocol before you need it.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w1i" /><label for="w1i"
+              ><span class="tag t-both">both</span>Read the Aeria stack doc together and draw the
+              architecture on one page<span class="why"
+                >14 services, each = 1 container running Hasura :8080 + Nest :3000 + its own
+                Postgres. Frontends hit ~13 base URLs directly, no gateway. Draw it until you can
+                draw it from memory.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w1j" /><label for="w1j"
+              ><span class="tag t-both">both</span>Create <code>DECISIONS.md</code> and
+              <code>DELTAS.md</code> in a shared repo</label
+            >
+          </li>
+        </ul>
+        <div class="docs">
+          <b>Docs:</b>
+          <a href="https://www.typescriptlang.org/docs/handbook/intro.html">TypeScript Handbook</a>
+          ·
+          <a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-oop.html"
+            >TS for OOP programmers</a
+          >
+          · <a href="https://javascript.info/">javascript.info</a> ·
+          <a href="https://docs.docker.com/compose/">Docker Compose</a>
+        </div>
+        <div class="deliver">
+          <b>Done when:</b> Sakshi can explain the event loop and write async code without copying;
+          Raj can model a domain in types and explain why a discriminated union beats a boolean
+          flag; both of you can draw the Aeria architecture from memory.
+        </div>
+      </section>
+
+      <!-- W2 -->
+      <section class="wk">
+        <div class="whead">
+          <div class="wnum">WK<br />2</div>
+          <div>
+            <h3 class="wtitle">React 19 + the server-state layer</h3>
+            <div class="wmeta">React · TanStack Query · axios · the no-gateway pattern</div>
+          </div>
+        </div>
+        <p class="wgoal">
+          Raj leads. The single most important frontend library in this stack is TanStack Query —
+          it's used in <em>every</em> web app. Get it genuinely right rather than superficially
+          working.
+        </p>
+        <ul class="checks">
+          <li>
+            <input type="checkbox" id="w2a" /><label for="w2a"
+              ><span class="tag t-sak">sakshi</span>React fundamentals: components, props,
+              <code>useState</code>, lists &amp; keys, <code>useEffect</code
+              ><span class="why"
+                >Raj teaches this. <a href="https://react.dev/learn">react.dev/learn</a></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w2b" /><label for="w2b"
+              ><span class="tag t-both">both</span>React 19 deltas from 18<span class="why"
+                >Both versions are live at Aeria. Learn 19, know what 18 lacks: <code>use()</code>,
+                Actions + <code>useActionState</code>, <code>ref</code> as a plain prop (<code
+                  >forwardRef</code
+                >
+                no longer needed), <code>&lt;Context&gt;</code> as provider, metadata hoisting.
+                <a href="https://react.dev/blog/2024/12/05/react-19">React 19 post</a></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w2c" /><label for="w2c"
+              ><span class="tag t-both">both</span>React 19's <b>silent</b> breaking changes<span
+                class="why"
+                >Render errors no longer re-throw (they go to <code>window.reportError</code>) —
+                this quietly breaks Sentry integrations unless you wire
+                <code>onUncaughtError</code>. And ref callbacks may now return a cleanup fn, so
+                implicit-return refs (<code>ref={el =&gt; (x = el)}</code>) are a type error. Both
+                bite real codebases.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w2d" /><label for="w2d"
+              ><span class="tag t-both">both</span><b>TanStack Query v5</b>:
+              <code>queryKey</code> as cache identity, <code>staleTime</code> vs <code>gcTime</code
+              ><span class="why"
+                >The #1 confusion point. Two independent clocks: <code>staleTime</code> (default
+                <b>0</b>) = when to refetch in background; <code>gcTime</code> (default
+                <b>5 min</b>) = how long unused data survives. Data can be stale-but-cached or
+                fresh-but-collectable.
+                <a href="https://tanstack.com/query/latest/docs/framework/react/guides/caching"
+                  >Caching guide</a
+                ></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w2e" /><label for="w2e"
+              ><span class="tag t-both">both</span>Mutations, invalidation, and optimistic
+              updates<span class="why"
+                >Learn the cache approach: <code>onMutate</code> →
+                <code>cancelQueries</code> (critical — stops an in-flight refetch clobbering your
+                write) → snapshot → <code>setQueryData</code> → roll back in <code>onError</code>.
+                <a
+                  href="https://tanstack.com/query/latest/docs/framework/react/guides/optimistic-updates"
+                  >Optimistic updates</a
+                ></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w2f" /><label for="w2f"
+              ><span class="tag t-raj">raj</span>Query persistence with
+              <code>@tanstack/react-query-persist-client</code
+              ><span class="why"
+                >Used for the dashboard's offline mode. Trap: <code>gcTime</code> must be ≥
+                <code>maxAge</code> (default 24 h) or GC discards data before persistence can use
+                it.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w2g" /><label for="w2g"
+              ><span class="tag t-both">both</span><b>The multi-base-URL pattern</b> — build a typed
+              axios client factory<span class="why"
+                >Aeria has <b>no API gateway</b>. Each frontend holds ~13 base URLs (<code
+                  >VITE_API_*_BASE_URL</code
+                >
+                / <code>NEXT_PUBLIC_*_API_URL</code>) with a per-service axios instance and
+                interceptors for auth + errors. The stack doc calls understanding this split more
+                valuable than any single library — it's right.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w2h" /><label for="w2h"
+              ><span class="tag t-both">both</span>Tailwind CSS 4, and what differs in 3.4<span
+                class="why"
+                >v4 is a different mental model: <code>@import "tailwindcss"</code> +
+                <code>@theme</code> in CSS instead of <code>tailwind.config.js</code>, automatic
+                content detection, every token becomes a real CSS variable. Renames that bite:
+                <code>shadow-sm</code>→<code>shadow-xs</code>, <code>ring</code> is now 1px
+                <code>currentColor</code>, <code>!flex</code>→<code>flex!</code>, borders default to
+                <code>currentColor</code>.
+                <a href="https://tailwindcss.com/docs/upgrade-guide">Upgrade guide</a></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w2i" /><label for="w2i"
+              ><span class="tag t-both">both</span>Forms: <b>react-hook-form + Zod</b> properly;
+              <b>Formik + Yup</b> to reading level<span class="why"
+                >Aeria uses both. Learn RHF for new code (~51M weekly downloads vs Formik's 4.6M;
+                Formik has shipped no features since 2024 and only React-19 compat patches since).
+                But 4 of their 6 apps use Formik, so you must be able to read it.
+                <a href="https://zod.dev/">Zod</a></span
+              ></label
+            >
+          </li>
+        </ul>
+        <div class="docs">
+          <b>Docs:</b>
+          <a href="https://tanstack.com/query/latest/docs/framework/react/overview"
+            >TanStack Query</a
+          >
+          · <a href="https://react.dev/reference/react">React reference</a> ·
+          <a href="https://tailwindcss.com/docs/installation/using-vite">Tailwind + Vite</a>
+        </div>
+        <div class="deliver">
+          <b>Done when:</b> you've built a small app that reads from three different fake service
+          base URLs through separate axios instances, caches with TanStack Query, and does one
+          optimistic mutation with rollback.
+        </div>
+      </section>
+
+      <!-- W3 -->
+      <section class="wk">
+        <div class="whead">
+          <div class="wnum">WK<br />3</div>
+          <div>
+            <h3 class="wtitle">The two build families: Vite SPA + Next App Router</h3>
+            <div class="wmeta">
+              Vite 5 · react-router-dom 7 · Next.js App Router · RSC mental model
+            </div>
+          </div>
+        </div>
+        <p class="wgoal">
+          Aeria ships one large Vite SPA (the dashboard) and five Next.js App Router apps. These are
+          genuinely different models — the Vite one will feel like the React you know, the Next one
+          won't.
+        </p>
+        <ul class="checks">
+          <li>
+            <input type="checkbox" id="w3a" /><label for="w3a"
+              ><span class="tag t-both">both</span>Vite 5 SPA: dev server, build, env vars
+              (<code>import.meta.env.VITE_*</code>), <code>plugin-react-swc</code></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w3b" /><label for="w3b"
+              ><span class="tag t-both">both</span>react-router-dom 7: nested routes, loaders,
+              protected routes<span class="why"
+                ><a href="https://reactrouter.com/">reactrouter.com</a></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w3c" /><label for="w3c"
+              ><span class="tag t-both">both</span
+              ><b>Server vs Client Components — the real mental model</b
+              ><span class="why"
+                >The concept that decides whether Next makes sense to you.
+                <code>"use client"</code> marks a <b>boundary in the module graph</b>, not a
+                subtree: everything a client file <em>imports</em> joins the client bundle, but
+                server components passed as <code>children</code> do not — they render on the server
+                and arrive as output. Learn the
+                <code>&lt;Wrapper&gt;{&lt;ServerThing/&gt;}&lt;/Wrapper&gt;</code> slot pattern.
+                <a href="https://nextjs.org/docs/app/getting-started/server-and-client-components"
+                  >Next docs</a
+                ></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w3d" /><label for="w3d"
+              ><span class="tag t-both">both</span>What can and can't cross the server/client
+              boundary<span class="why"
+                >Crosses: primitives, plain objects, Date, Map/Set, JSX, Promises, Server Functions.
+                Doesn't: functions, class instances, null-prototype objects. Context is unavailable
+                in Server Components — wrap it in a <code>"use client"</code> provider placed as
+                deep as possible.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w3e" /><label for="w3e"
+              ><span class="tag t-both">both</span>Layouts vs pages, <code>loading.js</code>,
+              <code>error.js</code>, streaming with Suspense<span class="why"
+                >Gotcha worth knowing early: a <em>layout</em> that reads
+                <code>cookies()</code>/<code>headers()</code> does <b>not</b> fall back to
+                same-segment <code>loading.js</code> — it blocks navigation. Put
+                <code>&lt;Suspense&gt;</code> close to the uncached read instead.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w3f" /><label for="w3f"
+              ><span class="tag t-both">both</span>Route handlers (<code>route.ts</code>) and when
+              to use them vs calling a microservice directly</label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w3g" /><label for="w3g"
+              ><span class="tag t-both">both</span><b>Next 14 → 15 deltas</b> — Aeria runs both<span
+                class="why"
+                >The big one: <code>cookies()</code>, <code>headers()</code>, <code>params</code>,
+                <code>searchParams</code> all became <b>async</b> in 15. Also: <code>fetch</code> is
+                no longer cached by default (14 defaulted to <code>force-cache</code>), GET route
+                handlers no longer cached, client router cache <code>staleTime</code> is 0 for
+                pages, and React 19 is required.
+                <a href="https://nextjs.org/docs/app/guides/upgrading/version-15"
+                  >Next 15 upgrade guide</a
+                ></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w3h" /><label for="w3h"
+              ><span class="tag t-both">both</span><code>NEXT_PUBLIC_*</code> is inlined at
+              <b>build</b> time, not run time<span class="why"
+                >Critical for a containerised multi-env deploy: one Docker image carries whatever
+                values were present at <code>next build</code>. You cannot promote the same image
+                across environments and change these.
+                <a href="https://nextjs.org/docs/app/guides/environment-variables"
+                  >Env var docs</a
+                ></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w3i" /><label for="w3i"
+              ><span class="tag t-raj">raj</span>Redux Toolkit + react-redux (dashboard only)<span
+                class="why"
+                >Only one Aeria app uses it; everything else is Context + TanStack Query. Learn it
+                to reading level, not mastery.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w3j" /><label for="w3j"
+              ><span class="tag t-both">both</span><b>Build the capstone frontend shells</b> — one
+              Vite SPA, one Next App Router app<span class="why"
+                >Static/fake data for now. These become the real thing in week 8.</span
+              ></label
+            >
+          </li>
+        </ul>
+        <div class="docs">
+          <b>Docs:</b> <a href="https://nextjs.org/docs/app/getting-started">Next App Router</a> ·
+          <a href="https://vite.dev/guide/">Vite guide</a> ·
+          <a href="https://react.dev/reference/rsc/use-client">RSC / use client</a>
+        </div>
+        <div class="deliver">
+          <b>Done when:</b> both capstone frontends run, route properly, and you can each explain —
+          without notes — why a given component must be a client component.
+        </div>
+      </section>
+
+      <!-- W4 -->
+      <section class="wk">
+        <div class="whead">
+          <div class="wnum">WK<br />4</div>
+          <div>
+            <h3 class="wtitle">NestJS core</h3>
+            <div class="wmeta">
+              Sakshi likely leads here · modules · DI · guards · pipes · interceptors
+            </div>
+          </div>
+        </div>
+        <p class="wgoal">
+          Backend starts. Both of you are at zero, but Sakshi's C++ background makes Nest's
+          OOP-and-DI structure familiar fast — expect the teaching direction to flip this week.
+        </p>
+        <ul class="checks">
+          <li>
+            <input type="checkbox" id="w4a" /><label for="w4a"
+              ><span class="tag t-both">both</span>HTTP first: methods, status codes, headers, REST
+              design<span class="why"
+                >Neither of you has built a server. Do not skip this to get to Nest.
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP">MDN HTTP</a></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w4b" /><label for="w4b"
+              ><span class="tag t-both">both</span>A bare Express app, by hand, once<span
+                class="why"
+                >~100 lines. Nest is an abstraction over exactly this — one afternoon here makes
+                every Nest concept land as "oh, that's what it's automating."</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w4c" /><label for="w4c"
+              ><span class="tag t-both">both</span>Nest: modules, providers,
+              <b>dependency injection</b>, controllers<span class="why"
+                >Sakshi: this is constructor injection, same as you know it. Raj: this will be the
+                least JavaScript-feeling thing in the roadmap.
+                <a href="https://docs.nestjs.com/providers">Providers</a></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w4d" /><label for="w4d"
+              ><span class="tag t-both">both</span>DTOs + <code>ValidationPipe</code> with
+              class-validator / class-transformer<span class="why"
+                >Use <code>{ whitelist: true, forbidNonWhitelisted: true, transform: true }</code>.
+                Note <code>forbidNonWhitelisted</code> without <code>whitelist</code> is a no-op.
+                <a href="https://docs.nestjs.com/techniques/validation">Validation</a></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w4e" /><label for="w4e"
+              ><span class="tag t-both">both</span>Guards, interceptors, exception filters, custom
+              decorators, lifecycle hooks<span class="why"
+                >The four named roles are just Express middleware split by <em>when</em> they run.
+                Aeria's <code>nest-libs</code> is mostly guards — session, permission, aeria-role,
+                internal-communication, service-signature.
+                <a href="https://docs.nestjs.com/guards">Guards</a> ·
+                <a href="https://docs.nestjs.com/interceptors">Interceptors</a></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w4f" /><label for="w4f"
+              ><span class="tag t-both">both</span><code>@nestjs/config</code>,
+              <code>@nestjs/swagger</code>, <code>@nestjs/schedule</code
+              ><span class="why"
+                >Config/env, auto-generated OpenAPI from decorators, and cron. All three are in
+                every Aeria service.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w4g" /><label for="w4g"
+              ><span class="tag t-both">both</span>Just enough RxJS: <code>Observable</code>,
+              <code>map</code>, <code>tap</code>, <code>catchError</code>,
+              <code>firstValueFrom</code
+              ><span class="why"
+                >Nest interceptors hand you Observables. You need reading fluency, not
+                mastery.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w4h" /><label for="w4h"
+              ><span class="tag t-both">both</span>Build on Nest <b>11</b>, note the Nest 10 deltas
+              in <code>DELTAS.md</code
+              ><span class="why"
+                >The programming model is identical between 10 and 11 — that's 90% of what you're
+                learning and it transfers both ways. What differs is infrastructure: Express 5 needs
+                <b>named</b> wildcards (<code>@Get('users/*splat')</code> not
+                <code>'users/*'</code>), query parsing changed to <code>simple</code>, cache-manager
+                moved to Keyv, and termination lifecycle hooks now run in reverse.
+                <a href="https://docs.nestjs.com/migration-guide">Migration guide</a></span
+              ></label
+            >
+          </li>
+        </ul>
+        <div class="docs">
+          <b>Docs:</b> <a href="https://docs.nestjs.com/">docs.nestjs.com</a> — unusually good; read
+          it front to back rather than hunting videos.
+        </div>
+        <div class="deliver">
+          <b>Done when:</b> you've each built a Nest service with real DTOs, a guard, an
+          interceptor, Swagger docs, and unit tests that mock a provider through DI.
+        </div>
+      </section>
+
+      <!-- W5 -->
+      <section class="wk">
+        <div class="whead">
+          <div class="wnum">WK<br />5</div>
+          <div>
+            <h3 class="wtitle">PostgreSQL + Hasura v2</h3>
+            <div class="wmeta">
+              SQL · tracking · relationships · permissions · migrations &amp; metadata as code
+            </div>
+          </div>
+        </div>
+        <p class="wgoal">
+          Hasura is the most distinctive thing about this platform and the least transferable —
+          almost nothing you've read online prepares you for it. Give it the full week.
+        </p>
+        <ul class="checks">
+          <li>
+            <input type="checkbox" id="w5a" /><label for="w5a"
+              ><span class="tag t-both">both</span>SQL that matters here: joins, indexes,
+              <b>JSONB</b>, <code>timestamptz</code>, UUID PKs<span class="why"
+                >Aeria's schemas lean on all five. PostGIS at awareness level only.
+                <a href="https://www.postgresql.org/docs/current/">PostgreSQL 18 docs</a> ·
+                <a href="https://pgexercises.com/">PG Exercises</a></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w5b" /><label for="w5b"
+              ><span class="tag t-both">both</span><code>EXPLAIN ANALYZE</code> on a real slow
+              query<span class="why"
+                >Do it now, while you still write SQL by hand. Once Hasura generates your queries
+                you'll never learn to read a plan.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w5c" /><label for="w5c"
+              ><span class="tag t-both">both</span>Hasura: install the CLI pinned to the engine
+              version; <code>hasura init</code
+              ><span class="why"
+                >Use the binary installer, not the npm <code>hasura-cli</code> package — that one is
+                community-maintained and stale.
+                <a href="https://hasura.io/docs/2.0/hasura-cli/install-hasura-cli/"
+                  >Install docs</a
+                ></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w5d" /><label for="w5d"
+              ><span class="tag t-both">both</span>Tracking tables; object vs array
+              relationships<span class="why"
+                >A table is invisible to GraphQL until <em>tracked</em>. Tracking is metadata, not
+                schema — a migration won't do it. Object = FK on this table; array = FK on the other
+                table. Both directions are separate metadata entries.
+                <a href="https://hasura.io/docs/2.0/schema/postgres/table-relationships/index/"
+                  >Relationships</a
+                ></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w5e" /><label for="w5e"
+              ><span class="tag t-both">both</span><b>Permissions</b>: (table × role × operation),
+              <code>filter</code> vs <code>check</code>, column rules<span class="why"
+                ><code>filter</code> = which existing rows you may see/affect. <code>check</code> =
+                what written data is allowed. Update takes both. Filters can traverse relationships
+                arbitrarily deep — that's how multi-tenancy works without a
+                <code>tenant_id</code> on every table.
+                <a
+                  href="https://hasura.io/docs/2.0/auth/authorization/permissions/row-level-permissions/"
+                  >Row-level permissions</a
+                ></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w5f" /><label for="w5f"
+              ><span class="tag t-both">both</span><b>JWT mode + session variables</b> — trace the
+              full chain<span class="why"
+                >Token arrives → Hasura verifies RS256 → <code>x-hasura-*</code> claims become
+                session variables → <code>x-hasura-default-role</code>/<code>allowed-roles</code>
+                pick the role → any <code>X-Hasura-*</code> literal inside a <code>filter</code> is
+                substituted as a <b>bound SQL parameter</b> into the WHERE clause. Gotchas: session
+                vars arrive as strings and are cast to the column type; Hasura only sees claims
+                prefixed <code>x-hasura-</code>.
+                <a href="https://hasura.io/docs/2.0/auth/authentication/jwt/">JWT auth</a></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w5g" /><label for="w5g"
+              ><span class="tag t-both">both</span>Migrations &amp; metadata as code — the CLI
+              workflow<span class="why"
+                ><code>hasura migrate create/apply/status/squash</code>,
+                <code>hasura metadata export/apply/diff/reload</code>. Three things everyone gets
+                wrong: <code>metadata apply</code> is a <b>full replace</b> (never apply from a
+                stale checkout); <code>reload</code> ≠ <code>apply</code>; and generated
+                <code>down.sql</code> should be reviewed by hand.
+                <a
+                  href="https://hasura.io/docs/2.0/migrations-metadata-seeds/migrations-metadata-setup/"
+                  >Migrations &amp; metadata</a
+                ></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w5h" /><label for="w5h"
+              ><span class="tag t-both">both</span
+              ><b>Always use <code>hasura console</code>, never the engine's web console</b
+              ><span class="why"
+                >The single most important operational rule. <code>hasura console</code> (port 9695)
+                intercepts every change and writes it to <code>migrations/</code> and
+                <code>metadata/</code> on disk. The console the engine serves on :8080 mutates the
+                running server directly and writes <b>nothing</b> — that change is invisible to Git
+                and gets destroyed by the next <code>metadata apply</code>. Set
+                <code>HASURA_GRAPHQL_ENABLE_CONSOLE=false</code> everywhere so the trap is
+                unreachable.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w5i" /><label for="w5i"
+              ><span class="tag t-both">both</span>Actions vs Remote Schemas vs Event Triggers<span
+                class="why"
+                >Actions = Hasura calls <em>your</em> REST endpoint synchronously (business logic
+                Hasura's CRUD can't express). Remote Schemas = merge another GraphQL server in.
+                Event Triggers = Postgres row change fires a webhook, async, with retries. In Aeria
+                all three handlers are Nest controllers on :3000 in the same container.
+                <b>Rule of thumb: reach for permissions first, Actions second</b> — teams new to
+                Hasura write Actions for things a <code>filter</code> already handles.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w5j" /><label for="w5j"
+              ><span class="tag t-both">both</span>The admin secret, and why it must always be
+              set<span class="why"
+                >A valid <code>x-hasura-admin-secret</code> means role <code>admin</code> and
+                <b>all permissions bypassed</b>. If <code>HASURA_GRAPHQL_ADMIN_SECRET</code> is
+                unset, anyone who can reach the port is admin. "It's only localhost" stops being
+                true the moment someone adds a port mapping.</span
+              ></label
+            >
+          </li>
+        </ul>
+        <div class="docs">
+          <b>Docs:</b> <a href="https://hasura.io/docs/2.0/index/">Hasura v2 docs</a> ·
+          <a href="https://hasura.io/docs/2.0/migrations-metadata-seeds/metadata-format/"
+            >Metadata format reference</a
+          >
+          · <a href="https://hasura.io/docs/2.0/auth/authorization/permissions/">Permissions</a>
+        </div>
+        <div class="deliver">
+          <b>Done when:</b> you can create a table via migration, track it, write a role-scoped
+          row-level permission driven by a JWT claim, and have the whole thing reproducible from a
+          clean database with <code>hasura migrate apply &amp;&amp; hasura metadata apply</code>.
+        </div>
+      </section>
+
+      <!-- W6 -->
+      <section class="wk">
+        <div class="whead">
+          <div class="wnum">WK<br />6</div>
+          <div>
+            <h3 class="wtitle">The signature pattern: Hasura inside the service</h3>
+            <div class="wmeta">
+              The highest-leverage week · codegen · typed SDK · one container, two processes
+            </div>
+          </div>
+        </div>
+        <p class="wgoal">
+          This is what makes Aeria <em>Aeria</em>. The stack doc names it the single
+          highest-leverage concept on the platform, and the codegen workflow as the thing that
+          blocks nearly all backend work if you can't run it. Get both airtight.
+        </p>
+        <ul class="checks">
+          <li>
+            <input type="checkbox" id="w6a" /><label for="w6a"
+              ><span class="tag t-both">both</span>GraphQL fundamentals: schema, queries, mutations,
+              variables, fragments, subscriptions<span class="why"
+                ><a href="https://graphql.org/learn/">graphql.org/learn</a></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w6b" /><label for="w6b"
+              ><span class="tag t-both">both</span>Build the container:
+              <code>FROM hasura/graphql-engine</code> + Node + your Nest app<span class="why"
+                >Write <code>startup.sh</code> yourself: create the DB if missing →
+                <code>graphql-engine serve --server-port 8080</code> →
+                <code>hasura metadata apply</code> + <code>hasura migrate apply</code> →
+                <code>node main.js</code> on :3000. Doing this by hand once is worth more than
+                reading it ten times.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w6c" /><label for="w6c"
+              ><span class="tag t-both">both</span>Why Hasura on :8080 and Nest on :3000 in
+              <em>one</em> container is coherent<span class="why"
+                >Because they're two halves of one service: Hasura is the data layer, Nest is the
+                logic layer, and localhost between them is the point. It's also why Action handler
+                URLs are literally <code>http://localhost:3000</code>.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w6d" /><label for="w6d"
+              ><span class="tag t-both">both</span><b>GraphQL Code Generator</b>:
+              <code>codegen.ts</code>, documents, plugins, the generated SDK<span class="why"
+                >Schema source = your Hasura endpoint with the admin secret; documents =
+                <code>src/**/*.graphql</code>; plugins = <code>typescript</code> +
+                <code>typescript-operations</code> + <code>typescript-graphql-request</code>.
+                <a
+                  href="https://the-guild.dev/graphql/codegen/plugins/typescript/typescript-graphql-request"
+                  >Plugin docs</a
+                ></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w6e" /><label for="w6e"
+              ><span class="tag t-both">both</span>Map Hasura's custom scalars in codegen config —
+              not optional<span class="why"
+                >Hasura emits <code>uuid</code>, <code>timestamptz</code>, <code>jsonb</code>,
+                <code>numeric</code>, <code>bigint</code>, <code>date</code>. Unmapped scalars now
+                default to <code>unknown</code> (not <code>any</code>), so they become compile
+                errors the moment you touch the value.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w6f" /><label for="w6f"
+              ><span class="tag t-both">both</span
+              ><b>The order of operations — make this muscle memory</b
+              ><span class="why"
+                >Edit schema in <code>hasura console</code> →
+                <code>hasura migrate apply &amp;&amp; hasura metadata apply</code> →
+                <code>npm run codegen</code> → <code>tsc</code>. Running codegen against stale
+                metadata produces types that compile and fail at runtime. In CI, fail the build if
+                <code>git diff --exit-code src/generated/</code> is non-empty.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w6g" /><label for="w6g"
+              ><span class="tag t-both">both</span>Wire the SDK into Nest as an injectable
+              provider<span class="why"
+                >A <code>@Global()</code> HasuraModule providing
+                <code>getSdk(new GraphQLClient(endpoint, { headers }))</code>. Because
+                <code>Sdk</code> is a plain object type it mocks trivially in tests — that's the
+                payoff for the whole typed-SDK approach.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w6h" /><label for="w6h"
+              ><span class="tag t-both">both</span
+              ><b>When does a read go through Hasura vs a hand-written Nest endpoint?</b
+              ><span class="why"
+                >The stack doc calls this the single highest-leverage concept on the platform. Rough
+                rule: shaped reads and CRUD → Hasura via the SDK; anything with business rules,
+                third-party calls, or cross-service orchestration → a Nest controller. Write your
+                own version of this rule in <code>DECISIONS.md</code>.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w6i" /><label for="w6i"
+              ><span class="tag t-both">both</span>Pin <code>graphql@^16</code> and know why<span
+                class="why"
+                ><code>graphql@17</code> is out, but both
+                <code>typescript-graphql-request</code> and <code>graphql-request</code> cap their
+                peer range at 16. Also: <code>graphql-request</code> 7.0–7.2 are <b>ESM-only</b> and
+                crash a CommonJS Nest app at runtime — use 7.4.0 or stay on 6.1.0.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w6j" /><label for="w6j"
+              ><span class="tag t-both">both</span><b>Ship capstone service #1 end to end</b
+              ><span class="why"
+                >One container, one database, tracked tables, permissions, generated SDK, a Nest
+                controller that uses it, Swagger docs. Everything after this is repetition plus
+                auth.</span
+              ></label
+            >
+          </li>
+        </ul>
+        <div class="docs">
+          <b>Docs:</b>
+          <a href="https://the-guild.dev/graphql/codegen/docs/getting-started"
+            >GraphQL Code Generator</a
+          >
+          ·
+          <a href="https://hasura.io/docs/2.0/migrations-metadata-seeds/auto-apply-migrations/"
+            >Auto-apply migrations image</a
+          >
+        </div>
+        <div class="deliver">
+          <b>Done when:</b> <code>docker compose up</code> gives you a service that self-migrates,
+          and changing a column propagates to a TypeScript compile error in under two minutes.
+        </div>
+      </section>
+
+      <!-- W7 -->
+      <section class="wk">
+        <div class="whead">
+          <div class="wnum">WK<br />7</div>
+          <div>
+            <h3 class="wtitle">Auth end to end &amp; the cross-cutting library</h3>
+            <div class="wmeta">
+              Swap capstone ownership this week · RS256 · guards · Redis · S3 · SQS · Sentry
+            </div>
+          </div>
+        </div>
+        <p class="wgoal">
+          The RS256 chain is Aeria's spine: <code>ms-auth</code> issues a token, Nest guards
+          validate it, <em>and</em> Hasura consumes the same token as session variables for
+          row-level rules. One token, two enforcement layers.
+        </p>
+        <ul class="checks">
+          <li>
+            <input type="checkbox" id="w7a" /><label for="w7a"
+              ><span class="tag t-both">both</span><b>Swap capstone service ownership</b> before
+              writing any new code<span class="why"
+                >Non-negotiable. Reading each other's unfamiliar code is the only reliable way
+                neither of you ends the roadmap with a blind spot.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w7b" /><label for="w7b"
+              ><span class="tag t-both">both</span>Asymmetric crypto: why <b>RS256</b> and not
+              HS256<span class="why"
+                >The whole architecture depends on this. HS256 shares one secret, so every one of 14
+                services could <em>mint</em> tokens. RS256 means only <code>ms-auth</code> holds the
+                private key; everyone else verifies with the public key. That's the difference
+                between 14 trusted issuers and one.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w7c" /><label for="w7c"
+              ><span class="tag t-both">both</span>Build a mini <code>ms-auth</code>: signup, login,
+              bcrypt, RS256 signing, refresh tokens<span class="why"
+                >Put <code>x-hasura-default-role</code>, <code>x-hasura-allowed-roles</code> and
+                your domain claims in the <code>https://hasura.io/jwt/claims</code> namespace.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w7d" /><label for="w7d"
+              ><span class="tag t-both">both</span>Serve a JWKS endpoint and point Hasura at it via
+              <code>jwk_url</code
+              ><span class="why"
+                >Better than a static key: key rotation at the issuer doesn't require redeploying
+                every service.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w7e" /><label for="w7e"
+              ><span class="tag t-both">both</span>Nest guards: session, permission, role<span
+                class="why"
+                >Mirror Aeria's <code>nest-libs</code> set. The key insight:
+                <b>the DTO validates shape, Hasura permissions enforce authorization</b> — never the
+                reverse.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w7f" /><label for="w7f"
+              ><span class="tag t-both">both</span>Service-to-service auth: internal-communication
+              &amp; service-signature guards<span class="why"
+                >How does <code>ms-visitor</code> prove to <code>ms-core</code> that it's really
+                <code>ms-visitor</code>? This is a genuinely hard problem and Aeria solves it with
+                signed internal requests. Build a simple version.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w7g" /><label for="w7g"
+              ><span class="tag t-both">both</span>Redis caching via
+              <code>@nestjs/cache-manager</code>; cache invalidation strategy</label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w7h" /><label for="w7h"
+              ><span class="tag t-both">both</span>S3 presigned upload/download URLs with
+              <code>@aws-sdk/client-s3</code
+              ><span class="why"
+                >The pattern: the browser uploads straight to S3 with a short-lived URL your backend
+                signs. Files never transit your API.
+                <a
+                  href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html"
+                  >Presigned URLs</a
+                ></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w7i" /><label for="w7i"
+              ><span class="tag t-both">both</span>SQS for async work, and one Hasura Event Trigger
+              → Nest webhook<span class="why"
+                >Two different async mechanisms for two different jobs. Event triggers are
+                intra-service and fire on row changes; SQS is cross-service and fires on your
+                terms.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w7j" /><label for="w7j"
+              ><span class="tag t-both">both</span>Sentry on both sides
+              (<code>@sentry/nestjs</code>, <code>@sentry/react</code>)<span class="why"
+                >Remember week 2: React 19 stopped re-throwing render errors, so wire
+                <code>onUncaughtError</code> or your frontend errors silently vanish.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w7k" /><label for="w7k"
+              ><span class="tag t-both">both</span>Typed inter-service clients —
+              <b>capstone services #2 and #3</b></label
+            >
+          </li>
+        </ul>
+        <div class="deliver">
+          <b>Done when:</b> a single login token works against all three services, Hasura row-level
+          rules enforce tenancy from its claims, and you can each explain the full chain from
+          password to WHERE clause.
+        </div>
+      </section>
+
+      <!-- W8 -->
+      <section class="wk">
+        <div class="whead">
+          <div class="wnum">WK<br />8</div>
+          <div>
+            <h3 class="wtitle">Integrate, test, ship</h3>
+            <div class="wmeta">
+              The whole system up with one command · tests · AWS awareness · write it up
+            </div>
+          </div>
+        </div>
+        <p class="wgoal">
+          Wire the week-3 frontends to the real services and make the whole thing start with one
+          command. Then prove it works and write down what you learned.
+        </p>
+        <ul class="checks">
+          <li>
+            <input type="checkbox" id="w8a" /><label for="w8a"
+              ><span class="tag t-both">both</span>Wire both frontends to all three services via
+              separate base URLs + axios instances</label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w8b" /><label for="w8b"
+              ><span class="tag t-both">both</span>Make the Next app talk to
+              <b>Hasura directly</b> at <code>/v1/graphql</code> with Apollo Client<span class="why"
+                >Exactly what Aeria's <code>web-checkin</code> and <code>fnb-pos-web</code> do —
+                bypassing REST entirely for some reads. Understanding <em>why</em> those two apps do
+                this and the others don't is the point of the exercise.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w8c" /><label for="w8c"
+              ><span class="tag t-both">both</span>One live subscription over <code>graphql-ws</code
+              ><span class="why"
+                >Hasura subscriptions are genuinely excellent and almost free once tables are
+                tracked.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w8d" /><label for="w8d"
+              ><span class="tag t-both">both</span>One <code>docker-compose.yaml</code> that starts
+              everything: 3 services + Postgres + Redis + 2 frontends</label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w8e" /><label for="w8e"
+              ><span class="tag t-both">both</span>Backend tests: Jest + supertest against a real
+              containerised database</label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w8f" /><label for="w8f"
+              ><span class="tag t-both">both</span>Frontend tests: Vitest + Testing Library; one
+              Storybook story set<span class="why"
+                >Aeria uses Vitest 2 and Storybook 8 on the dashboard.
+                <a href="https://vitest.dev/guide/">Vitest</a> ·
+                <a href="https://testing-library.com/docs/react-testing-library/intro/"
+                  >Testing Library</a
+                ></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w8g" /><label for="w8g"
+              ><span class="tag t-both">both</span>ESLint 10 flat config + Prettier across the whole
+              repo<span class="why"
+                >Teach yourselves flat config, not <code>.eslintrc</code> — v10 removed eslintrc
+                entirely, and ESLint 9 goes EOL on 6 Aug 2026.
+                <a href="https://eslint.org/docs/latest/use/configure/migration-guide"
+                  >Flat config migration</a
+                ></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w8h" /><label for="w8h"
+              ><span class="tag t-both">both</span>esbuild-bundle one service to a single
+              <code>main.js</code
+              ><span class="why"
+                >How Aeria ships every service to production. It'll expose any accidental dynamic
+                <code>require</code>.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w8i" /><label for="w8i"
+              ><span class="tag t-both">both</span>AWS at awareness level: RDS, S3, SQS, Lambda, and
+              one tiny <b>CDK</b> stack<span class="why"
+                >Don't try to learn AWS properly in a week. Deploy one S3 bucket + one Lambda with
+                CDK so infrastructure-as-code stops being abstract.
+                <a href="https://docs.aws.amazon.com/cdk/v2/guide/home.html">AWS CDK</a></span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w8j" /><label for="w8j"
+              ><span class="tag t-both">both</span><b>Write the architecture README</b> with a
+              diagram, plus finalise <code>DELTAS.md</code
+              ><span class="why"
+                >This is your actual portfolio piece — more than the code. Explain every boundary
+                and why it's there, and what you'd do differently.</span
+              ></label
+            >
+          </li>
+          <li>
+            <input type="checkbox" id="w8k" /><label for="w8k"
+              ><span class="tag t-both">both</span>Each of you gives a 20-minute walkthrough of the
+              <em>other's</em> services<span class="why"
+                >The final exam. If you can't explain code you didn't write, ownership swapping
+                didn't work and you know exactly where to spend next week.</span
+              ></label
+            >
+          </li>
+        </ul>
+        <div class="deliver">
+          <b>Done when:</b> <code>docker compose up</code> brings up the whole platform, a user can
+          log in on one frontend and see permission-scoped data on both, and each of you can present
+          the other's half.
+        </div>
+      </section>
+
+      <!-- ===== CAPSTONE ===== -->
+      <h2 class="sec">The capstone: "Mini-Aeria"</h2>
+      <p class="lead">
+        Deliberately a faithful miniature, not a simplification — same shape, three services instead
+        of fourteen. Start it in week 4 and grow it every week after.
+      </p>
+
+      <div class="box">
+        <p>
+          <b>Suggested domain:</b> visitor management for an office building, mirroring Aeria's real
+          <code>ms-auth</code> / <code>ms-core</code> / <code>ms-visitor</code> split. Pick
+          something else if you prefer — keep the <em>shape</em>.
+        </p>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Owns</th>
+                <th>Exercises</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>ms-auth</code></td>
+                <td>Users, credentials, RS256 signing, JWKS</td>
+                <td>bcrypt, asymmetric JWT, refresh tokens, the claims namespace</td>
+              </tr>
+              <tr>
+                <td><code>ms-core</code></td>
+                <td>Orgs, sites, members (the central service)</td>
+                <td>Multi-tenancy via relationship-traversing Hasura permissions</td>
+              </tr>
+              <tr>
+                <td><code>ms-visitor</code></td>
+                <td>Visitor passes, check-in/out</td>
+                <td>
+                  Event triggers, SQS, S3 (visitor photos), cross-service calls to
+                  <code>ms-core</code>
+                </td>
+              </tr>
+              <tr>
+                <td><code>admin-dashboard</code></td>
+                <td>Vite SPA + react-router 7</td>
+                <td>3 base URLs, TanStack Query, Redux Toolkit, Tailwind, charts</td>
+              </tr>
+              <tr>
+                <td><code>web-checkin</code></td>
+                <td>Next.js App Router</td>
+                <td>RSC, Apollo Client → Hasura directly, <code>graphql-ws</code> subscription</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          <b>Hard constraints — these are what make it faithful:</b> each service is
+          <b>one container</b> running its own Hasura + its own Postgres database.
+          <b>No API gateway</b> — frontends hold separate base URLs per service. All Nest reads go
+          through the <b>generated typed SDK</b>, not raw SQL. One RS256 token is validated by Nest
+          guards <em>and</em> consumed by Hasura as session variables. Schema changes only ever
+          happen through <code>hasura migrate</code> + metadata YAML in the repo.
+        </p>
+      </div>
+
+      <!-- ===== THE SIX ===== -->
+      <h2 class="sec">The six things that make this codebase hard</h2>
+      <p class="lead">
+        Straight from the stack doc's own list, mapped to where each is handled. If you can explain
+        all six at the end, you're ready.
+      </p>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>The hard thing</th>
+              <th>Covered</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>
+                <b>Hasura-inside-the-service</b> — knowing when a read goes through generated
+                GraphQL vs a hand-written Nest endpoint
+              </td>
+              <td>Week 6</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>
+                <b>Codegen workflow</b> — <code>.graphql</code> → <code>npm run codegen</code> →
+                typed <code>sdk.ts</code>. Can't run it, can't work.
+              </td>
+              <td>Week 6</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>
+                <b>Multi-service frontend wiring</b> — no gateway, ~13 base URLs, plus two apps
+                hitting Hasura directly
+              </td>
+              <td>Weeks 2, 8</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>
+                <b>Auth end to end</b> — RS256 issued by <code>ms-auth</code> → Nest guards → Hasura
+                session variables
+              </td>
+              <td>Week 7</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>
+                <b>Version heterogeneity</b> — React 18/19, Next 14/15, Tailwind 3/4, ESLint 8/9 all
+                live at once
+              </td>
+              <td>Every week → <code>DELTAS.md</code></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td><b>Migrations &amp; metadata as code</b> — never ad-hoc SQL</td>
+              <td>Week 5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ===== TRAPS ===== -->
+      <h2 class="sec">Traps to sidestep</h2>
+      <div class="traps">
+        <div class="trap">
+          <h4>Splitting frontend and backend between you</h4>
+          <p>
+            You already chose not to, and it's the right call — but the temptation returns hard
+            around week 5 when Hasura is confusing and Raj could be "usefully" building UI instead.
+            Resist it. The person who skips the Hasura week becomes permanently dependent on the
+            other for half the platform.
+          </p>
+        </div>
+        <div class="trap">
+          <h4>Sakshi trying to write JavaScript like C++</h4>
+          <p>
+            Classes for everything, defensive copying, manual iteration instead of
+            <code>.map()</code>. It compiles and it's readable to you and it will look alien in
+            review. Lean on Raj hard for idiom in weeks 1–3.
+          </p>
+        </div>
+        <div class="trap">
+          <h4>Raj assuming Server Components are "just React"</h4>
+          <p>
+            They aren't — the module-graph boundary is a genuinely new model, and existing React
+            intuitions actively mislead here. This is the one place where Raj's experience is a
+            liability rather than an asset.
+          </p>
+        </div>
+        <div class="trap">
+          <h4>Using the Hasura web console</h4>
+          <p>
+            Worth repeating because it's the most expensive mistake available: changes made on :8080
+            write nothing to disk, are invisible to Git, and are destroyed by the next
+            <code>metadata apply</code>. Across 14 services this is how you get 14 divergent
+            schemas. Only ever <code>hasura console</code>.
+          </p>
+        </div>
+        <div class="trap">
+          <h4>Learning the pinned versions instead of the current ones</h4>
+          <p>
+            Next 14 is EOL, Hasura v2.37 is outside every support window, ESLint 9 goes EOL next
+            week. Learn current, document the delta. Knowing "we're on X, current is Y, here's what
+            differs" is exactly what makes someone useful on day one.
+          </p>
+        </div>
+        <div class="trap">
+          <h4>Two months of learning and nothing that runs</h4>
+          <p>
+            The capstone starts in week 4, not week 8. Something must be running and demoable at
+            every Friday demo, even if it's ugly. A working three-service system beats a
+            comprehensive set of notes by an enormous margin.
+          </p>
+        </div>
+      </div>
+
+      <h2 class="sec">Two files that will matter more than your code</h2>
+      <p style="color: var(--ink-2); font-size: 15px">
+        <b><code>DELTAS.md</code></b> — every place the Aeria pin differs from the current version,
+        and what breaks. You'll build it incidentally over 8 weeks, and it's the most useful
+        document a new team member can arrive holding.
+      </p>
+      <p style="color: var(--ink-2); font-size: 15px">
+        <b><code>DECISIONS.md</code></b> — three lines per architectural choice: what you picked,
+        what you rejected, why. When someone asks "why does a read go through Hasura here but a Nest
+        endpoint there?", this is the file that means you have an answer instead of a guess.
+      </p>
+
+      <footer>
+        Built for Raj &amp; Sakshi · 30 July 2026 · Versions verified at time of writing: React 19.2
+        · Next 16.2 (maint. 15.5) · NestJS 11.1 · Hasura v2.49 (LTS v2.45) · PostgreSQL 18 ·
+        Tailwind 4.3 · ESLint 10.8 · TanStack Query 5.101 · Zod 4.4 · graphql 16.14 (pin to 16).
+        Checkboxes track progress for this browsing session.
+      </footer>
+    </div>
+
+    <script>
+      const boxes = Array.from(document.querySelectorAll("ul.checks input[type=checkbox]"));
+      const fill = document.getElementById("pf");
+      const val = document.getElementById("pv");
+      const reset = document.getElementById("preset");
+
+      /* ==================================================================
+     STORAGE — IndexedDB as the store of record.
+
+     IndexedDB is blocked on file:// origins in Chrome and Firefox
+     (opaque origin), and unavailable in some private-browsing modes.
+     Since this page is meant to open straight off disk, we degrade:
+     IndexedDB → localStorage → in-memory. Every layer is behind the
+     same read/write pair, so the rest of the script never cares which
+     one it landed on.
+     ================================================================== */
+      const DB_NAME = "aeria-roadmap",
+        DB_VERSION = 1,
+        STORE = "progress";
+      const PROG_KEY = "aeria_roadmap_progress_v1";
+
+      let backend = "memory"; // 'idb' | 'local' | 'memory'
+      let db = null;
+      let memStore = {};
+
+      function openDB() {
+        return new Promise((resolve) => {
+          let req;
+          try {
+            if (!self.indexedDB) return resolve(null);
+            req = indexedDB.open(DB_NAME, DB_VERSION);
+          } catch (err) {
+            console.warn("IndexedDB unavailable, falling back:", err);
+            return resolve(null);
+          }
+          req.onupgradeneeded = () => {
+            const d = req.result;
+            if (!d.objectStoreNames.contains(STORE)) d.createObjectStore(STORE);
+          };
+          req.onsuccess = () => resolve(req.result);
+          req.onerror = () => {
+            console.warn("IndexedDB open failed:", req.error);
+            resolve(null);
+          };
+          req.onblocked = () => resolve(null);
+        });
+      }
+
+      function idbGet(key) {
+        return new Promise((resolve) => {
+          let r;
+          try {
+            r = db.transaction(STORE, "readonly").objectStore(STORE).get(key);
+          } catch (err) {
+            console.warn("IndexedDB read failed:", err);
+            return resolve(undefined);
+          }
+          r.onsuccess = () => resolve(r.result);
+          r.onerror = () => {
+            console.warn("IndexedDB read failed:", r.error);
+            resolve(undefined);
+          };
+        });
+      }
+
+      function idbSet(key, val) {
+        return new Promise((resolve) => {
+          let tx;
+          try {
+            tx = db.transaction(STORE, "readwrite");
+            tx.objectStore(STORE).put(val, key);
+          } catch (err) {
+            console.warn("IndexedDB write failed:", err);
+            return resolve(false);
+          }
+          tx.oncomplete = () => resolve(true);
+          tx.onerror = () => {
+            console.warn("IndexedDB write failed:", tx.error);
+            resolve(false);
+          };
+          tx.onabort = () => resolve(false);
+        });
+      }
+
+      function localGet() {
+        try {
+          const raw = localStorage.getItem(PROG_KEY);
+          return raw ? JSON.parse(raw) : undefined;
+        } catch (err) {
+          console.warn("localStorage read failed:", err);
+          return undefined;
+        }
+      }
+
+      function localSet(val) {
+        try {
+          localStorage.setItem(PROG_KEY, JSON.stringify(val));
+          return true;
+        } catch (err) {
+          console.warn("localStorage write failed:", err);
+          return false;
+        }
+      }
+
+      /* Pick a backend and return whatever progress it already holds.
+     If IndexedDB is fresh but localStorage has a prior run, that run
+     is migrated in rather than dropped. */
+      async function initStore() {
+        db = await openDB();
+        if (db) {
+          backend = "idb";
+          let saved = await idbGet(PROG_KEY);
+          if (saved === undefined) {
+            const legacy = localGet();
+            if (legacy) {
+              saved = legacy;
+              await idbSet(PROG_KEY, legacy);
+            }
+          }
+          return saved || {};
+        }
+        const saved = localGet();
+        if (saved !== undefined || localSet({})) {
+          backend = "local";
+          return saved || {};
+        }
+        backend = "memory";
+        return memStore[PROG_KEY] || {};
+      }
+
+      let progress = {};
+      async function saveProgress() {
+        memStore[PROG_KEY] = progress;
+        if (backend === "idb") {
+          if (await idbSet(PROG_KEY, progress)) return;
+          backend = "local"; // storage was evicted mid-session
+        }
+        if (backend === "local" && !localSet(progress)) backend = "memory";
+        if (backend === "memory") showStorageNote();
+      }
+
+      function render() {
+        const done = boxes.filter((b) => b.checked).length;
+        const pct = boxes.length ? Math.round((done / boxes.length) * 100) : 0;
+        fill.style.width = pct + "%";
+        val.textContent = done + " of " + boxes.length + " · " + pct + "%";
+        reset.hidden = done === 0;
+      }
+
+      function showStorageNote() {
+        document.getElementById("pnote").textContent =
+          "Progress can’t be saved in this browser — it will reset when you close the tab.";
+      }
+
+      boxes.forEach((b) =>
+        b.addEventListener("change", () => {
+          b.closest("li").classList.toggle("done", b.checked);
+          if (b.checked) progress[b.id] = true;
+          else delete progress[b.id];
+          saveProgress();
+          render();
+        }),
+      );
+
+      reset.addEventListener("click", () => {
+        const done = boxes.filter((b) => b.checked).length;
+        if (!confirm("Clear all " + done + " ticked items? This cannot be undone.")) return;
+        boxes.forEach((b) => {
+          b.checked = false;
+          b.closest("li").classList.remove("done");
+        });
+        progress = {};
+        saveProgress();
+        render();
+      });
+
+      /* Hydrate. IndexedDB is async, so the checklist starts unticked and
+     fills in once the read resolves — .hydrating suppresses the bar's
+     width transition so it doesn't animate up from zero on every load.
+     Boxes are keyed by their stable ids (w1a, w1b, …); an id that no
+     longer exists is ignored, so editing the roadmap never corrupts a
+     saved run.
+
+     Kept as an async IIFE deliberately: top-level await would require
+     a module script, and module scripts are fetched with CORS, which
+     fails on file:// — the exact case this page has to survive. */
+      (async () => {
+        document.body.classList.add("hydrating");
+        try {
+          progress = await initStore();
+        } catch (err) {
+          console.warn("Progress could not be restored:", err);
+          progress = {};
+        }
+        boxes.forEach((b) => {
+          if (progress[b.id]) {
+            b.checked = true;
+            b.closest("li").classList.add("done");
+          }
+        });
+        render();
+        requestAnimationFrame(() => document.body.classList.remove("hydrating"));
+        if (backend === "memory") showStorageNote();
+      })();
+
+      render();
+    </script>
+  </body>
+</html>
