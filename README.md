@@ -4,7 +4,7 @@
 
 Four self-contained HTML pages. No build step, no `node_modules`, no framework to install. Open `index.html` and everything is there.
 
-**[→ Open the shelf](https://rajdeep-aeriax.github.io/roadmaps/)**
+**[→ Open the shelf](https://imrajdeeps.github.io/learning-roadmap/)**
 
 ---
 
